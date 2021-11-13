@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онлайн-Маркет Фрешок</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
+        <div class="header__top-inner">
+          <address class="header__address">
+            <ul class="header__address-list">
+              <li class="header__address-item header__address-item--address">
+                <a class="header__address-link" href="#">
+                  адрес и время доставки
+                </a>
+              </li>
+              <li class="header__address-item header__address-item--tel">
+                <a class="header__address-link" href="#">
+                  горячая линия 24/7
+                </a>
+              </li>
+            </ul>
+          </address>
+          <ul class="header__top-info">
+            <li class="header__top-item">
+              <a class="header__top-link" href="#">
+                доставка
+              </a>
+            </li>
+            <li class="header__top-item">
+              <a class="header__top-link" href="#">
+                о нас
+              </a>
+            </li>
+            <li class="header__top-item">
+              <a class="header__top-link" href="#">
+                новости
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="header__main">
+      <div class="container">
+        <div class="header__main-inner">
+          <a class="logo" href="#">
+            <img src="images/logo.svg" alt="логотип" width="200">
+          </a>
+
+          <form class="form">
+            <div class="select">
+              <select class="select__inner" name="">
+                <option value="1" selected disabled>Каталог продуктов</option>
+                <option value="2">Овощи и фрукты</option>
+                <option value="3">Бакалея</option>
+                <option value="4">Молочные продукты</option>
+                <option value="5">Хлеб</option>
+                <option value="6">Мясо</option>
+                <option value="7">Колбаса</option>
+                <option value="8">Рыба</option>
+                <option value="9">Алкоголь</option>
+                <option value="10">Напитки</option>
+                <option value="11">Торты</option>
+                <option value="12">Мясо</option>
+                <option value="13">Чай, кофе</option>
+              </select>
+            </div>
+
+            <div class="input">
+              <input class="input__inner" type="text" placeholder="Найти в магазине ..." required>
+              <button class="button" type="submit">
+                поиск
+              </button>
+            </div>
+          </form>
+
+          <ul class="user-nav">
+            <li class="user-nav__item">
+              <a class="user-nav__link user-nav__link--user" href="#"
+                style="background-image: url(images/icons/user.svg);">
+              </a>
+            </li>
+            <li class="user-nav__item">
+              <a class="user-nav__link" href="#" style="background-image: url(images/icons/heart.svg);">
+                <span class="user-nav__num">12</span>
+              </a>
+            </li>
+            <li class="user-nav__item">
+              <a class="user-nav__link" href="#" style="background-image: url(images/icons/cart.svg);">
+                <span class="user-nav__num">12</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <setion class="hero">
+    <ul class="hero__inner">
+      <li class="hero__slide" style="background-image: url(images/slider/carrot.jpg);">
+        <div class="container">
+          <div class="hero__item">
+            <h1 class="hero__title">
+              свежачок вам в хату
+              <span class="hero__discount">Скидка -50%</span>
+            </h1>
+
+            <div class="hero__text">
+              <p>Только с 7 по 13 июля скидка на сезонные фрукты и овощи до 50%. Торопитесь!</p>
+            </div>
+
+            <button class="btn" type="submit">Купить сейчас</button>
+          </div>
+
+        </div>
+      </li>
+
+      <li class="hero__slide" style="background-image: url(images/slider/tomato.jpg);">
+        <div class="container">
+          <div class="hero__item">
+            <h1 class="hero__title">
+              накрути себе томатов
+              <span class="hero__discount">акция: 3 кг по цене 1</span>
+            </h1>
+      
+            <div class="hero__text">
+              <p>Только с 12 по 15 июля скидка на домашние помидорчики</p>
+            </div>
+      
+            <button class="btn" type="submit" >Купить сейчас</button>
+          </div>
+      
+        </div>
+      </li>
+
+      <li class="hero__slide" style="background-image: url(images/slider/greens.jpg);">
+        <div class="container">
+          <div class="hero__item">
+            <h1 class="hero__title">
+              Пусть остальные
+              позеленеют от зависти
+              <span class="hero__discount">Распродажа зелени</span>
+            </h1>
+      
+            <!-- <div class="hero__text">
+              <p></p>
+            </div> -->
+      
+            <button class="btn" type="submit">Купить сейчас</button>
+          </div>
+      
+        </div>
+      </li>
+
+    </ul>
+  </setion>
+
+
+
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
