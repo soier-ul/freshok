@@ -1,42 +1,32 @@
-$title: #121212;
-$red: #CF3E3B;
-$green: #63A60E;
-$text: #505050;
-$orange: #ff7a00;
+$green-900: #4d800c;
+$green: #63a60e;
+$green-200: #e0edcf;
 $green-100: #eff6e7;
 
+$black: #121212;
+$black-800: #31352b;
+$black-500: #505050;
 
-%opensans-400 {
-  font-family: 'Open Sans';
-  font-weight: 400;
+$white: #fff;
+$silver: #c1c1c1;
+$silver-100: #f6f6f6;
+
+$red: #cf3e3b;
+$orange: #ff7a00;
+$yellow: #ffb800;
+
+@mixin clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-%opensans-600 {
-  font-family: 'Open Sans';
-  font-weight: 600;
-}
-
-%opensans-700 {
-  font-family: 'Open Sans';
-  font-weight: 700;
-}
-
-%ruda-600 {
-  font-family: 'Ruda';
-  font-weight: 600;
-}
-
-%ruda-700 {
-  font-family: 'Ruda';
-  font-weight: 700;
-}
-
-%ruda-900 {
-  font-family: 'Ruda';
-  font-weight: 900;
-}
-
-%signika-700 {
-  font-family: 'Signika';
-  font-weight: 700;
+%area {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 40px;
 }

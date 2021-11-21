@@ -19,10 +19,7 @@ function browsersync() {
 }
 
 function styles() {
-  return src([
-    'node_modules/slick-carousel/slick/slick.css',
-    'app/scss/style.scss'
-  ])
+  return src('app/scss/style.scss')
     .pipe(scss({outputStyle: 'compressed'}))
     .pipe(concat('style.min.css'))
     .pipe(autoprefixer({
@@ -38,6 +35,7 @@ function scripts() {
     'node_modules/jquery/dist/jquery.js',
     'node_modules/slick-carousel/slick/slick.js',
     'node_modules/mixitup/dist/mixitup.js',
+    'node_modules/rateyo/src/jquery.rateyo.js',
     'app/js/main.js'
   ])
     .pipe(concat('main.min.js'))
