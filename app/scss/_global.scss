@@ -1,9 +1,9 @@
 body {
   font-size: 14px;
   line-height: 1.4;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
-  background-color: #fff;
+  background-color: $white;
   color: $black-500;
   letter-spacing: 0.03em;
 }
@@ -18,18 +18,9 @@ body {
   }
 }
 
-// a {
-//   position: relative;
-
-//   &::after {
-//     content: '';
-//     position: absolute;
-//     top: -10px;
-//     left: 0;
-//     width: 100%;
-//     height: 40px;
-//   }
-// }
+svg {
+  fill: $white;
+}
 
 html,
 body {
@@ -74,11 +65,6 @@ body {
   }
 }
 
-.user-icon {
-  width: 32px;
-  height: 30px;
-}
-
 .btn-animation {
   transition: background-color 0.5s, box-shadow 0.3s, color 0.4s;
 
@@ -120,16 +106,29 @@ body {
       @extend %area;
     }
   }
+}
 
-  &__link:focus {
+.link-animation {
+  outline: transparent;
+  transition: border-radius 0.3s, box-shadow 0.3s, opacity 0.3s, color 0.3s;
+
+  &:focus {
     box-shadow: 0 0 0 3px $green-100;
     border-radius: 3px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    color: $green-200;
   }
 }
 
 .btn {
   font-size: 18px;
-  color: #fff;
+  color: $white;
   letter-spacing: 0.03em;
   padding: 12px 24px;
   background-color: $green;
@@ -144,7 +143,7 @@ body {
     border: 1px solid $green;
 
     &:focus {
-      box-shadow: 0 0 0 4px rgba(99, 166, 14, 0.5);
+      box-shadow: 0 0 0 4px rgba($green, 0.5);
     }
 
     &:hover {
@@ -152,15 +151,15 @@ body {
     }
 
     &:active {
-      box-shadow: inset 0 10px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 10px 4px rgba($black, 0.1);
       background-color: transparent;
-      color: rgba(99, 166, 14, 0.5);
+      color: rgba($green, 0.5);
     }
   }
 }
 
 .title {
-  font-family: 'Ruda';
+  font-family: 'Ruda', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 32px;
@@ -169,44 +168,14 @@ body {
   margin-bottom: 30px;
 }
 
-.input {
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    background-image: url(../images/icons/search.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 20px;
-    height: 20px;
-    top: 14px;
-    left: 13px;
-    pointer-events: none;
-  }
-
-  &__field {
-    width: 100%;
-    padding: 15px 170px 15px 50px;
-    outline: transparent;
-    border-radius: 6px;
-
-    &::placeholder {
-      color: #31352B;
-      letter-spacing: 0.03em;
-    }
-  }
-}
-
 .input-button {
   position: absolute;
   right: 0;
   top: 0;
   text-transform: uppercase;
   font-weight: 600;
-  color: #fff;
-  background-color: #31352B;
+  color: $white;
+  background-color: $black-800;
   padding: 15px 52px;
   border-bottom-right-radius: 6px;
   border-top-right-radius: 6px;
@@ -214,7 +183,7 @@ body {
   outline: transparent;
 
   &:hover {
-    background-color: rgba(49, 53, 43, 0.85);
+    background-color: rgba($black-800, 0.85);
   }
 }
 
@@ -253,12 +222,12 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #e0edcf;
+    background-color: $green-200;
     transition: width 0.4s;
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px #e0edcf;
+    box-shadow: 0 0 0 3px $green-200;
     border-radius: 6px;
   }
 
@@ -267,7 +236,7 @@ body {
   }
 
   &:active::before {
-    background-color: #E0EDCF;
+    background-color: $green-200;
   }
 }
 
@@ -279,7 +248,7 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #e0edcf;
+  background-color: $green-200;
   transition: width 0.4s;
 }
 
@@ -297,16 +266,18 @@ body {
   &__link {
     width: 32px;
     height: 32px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
     display: block;
     border-radius: 3px;
     outline: transparent;
     transition: opacity 0.4s, box-shadow 0.4s;
 
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+
     &:focus {
-      box-shadow: 0 0 0 3px #E0EDCF;
+      box-shadow: 0 0 0 3px $green-200;
     }
 
     &:hover {
@@ -319,73 +290,40 @@ body {
       }
     }
   }
-
-  .social-icon {
-    width: 32px;
-    height: 32px;
-    fill: $white;
-  }
-}
-
-.product {
-  margin-right: 15px;
-  margin-left: 15px;
-  margin-bottom: 30px;
 }
 
 .product-card {
-  border: 1px solid rgba(17, 17, 17, 0.2);
+  border: 1px solid rgba($black, 0.2);
   border-radius: 6px;
   max-width: 300px;
   width: 100%;
-  padding: 64px 18px 18px 18px;
-  display: flex;
-  flex-direction: column;
-  height: 409px;
-  text-align: left;
+  padding: 56px 18px 18px 18px;
   position: relative;
   transition: border 0.3s;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     border: 1px solid $green;
   }
 
-  &__btn {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    top: 17px;
-    right: 12px;
-    background-color: transparent;
-    outline: transparent;
-    border-radius: 3px;
-
-    &--heart {
-
-      &:focus {
-        box-shadow: 0 0 0 4px $green-200;
-      }
-
-      &:hover {
-        svg {
-          fill: $yellow;
-          transition: fill 0.5s;
-        }
-      }
-
-      &:active {
-        svg {
-          fill: rgba($yellow, 0.5);
-        }
-      }
-    }
-  }
-
-  &__image {
-    height: 215px;
+  &__link {
     display: block;
-    margin-bottom: 18px;
     position: relative;
+    margin-bottom: 10px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: $green;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
 
     &::before,
     &::after {
@@ -412,70 +350,257 @@ body {
       transform: translate(-50%, -50%);
     }
 
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+    }
+
     &:hover::before,
-    &:hover::after,
-    &:hover .search-icon {
+    &:hover::after {
       opacity: 1;
     }
   }
 
-  .search-icon {
-    width: 20px;
-    height: 20px;
-    fill: $green;
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.6s;
+  &__img {
+    object-fit: cover;
+    height: 225px;
   }
 
   &__descr {
     font-weight: 600;
     color: $black;
     font-size: 14px;
-    @include clamp;
-    margin-bottom: auto;
+    height: 63px;
+    @include clamp(3);
   }
 
   &__price {
+    margin-top: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-family: sans-serif;
-    margin-top: 10px;
   }
+}
 
-  &__buy-btn {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    background-color: $green;
-    border-radius: 3px;
-    right: 18px;
-    bottom: 18px;
-    outline: transparent;
-  }
+.btn-chosen {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 17px;
+  right: 12px;
+  background-color: transparent;
+  outline: transparent;
+  border-radius: 3px;
 
-  .user-icon {
+  svg {
     width: 32px;
     height: 30px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    fill: $silver;
+  }
 
-    &--heart {
-      fill: $silver;
+  &:focus {
+    box-shadow: 0 0 0 4px $green-200;
+  }
+
+  &:hover {
+    svg {
+      fill: $yellow;
+      transition: fill 0.5s;
+    }
+  }
+
+  &:active {
+    svg {
+      fill: rgba($yellow, 0.5);
+    }
+  }
+}
+
+.btn-basket {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  right: 18px;
+  bottom: 18px;
+  background-color: $green;
+  border-radius: 3px;
+  outline: transparent;
+
+  svg {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.6s;
+  }
+}
+
+.little-card {
+  border: 1px solid rgba($black, 0.2);
+  border-radius: 6px;
+  padding: 12px;
+  background-color: $white;
+  transition: border 0.3s;
+  width: 300px;
+  position: relative;
+
+  &:hover {
+    border: 1px solid $green;
+  }
+
+  &__link {
+    display: flex;
+  }
+
+  &__img {
+    max-width: 98px;
+    height: 98px;
+    object-fit: cover;
+  }
+
+  &__info {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__descr {
+    font-size: 14px;
+    font-weight: 600;
+    color: $black;
+    margin-bottom: auto;
+    width: 165px;
+    @include clamp(3);
+  }
+
+  &__price {
+    display: flex;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 12px;
+    right: 8px;
+  }
+
+  &__rate {
+    color: $black-500;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  &__star {
+    pointer-events: none;
+
+    svg {
+      fill: $yellow;
+    }
+  }
+
+  .price {
+    margin-right: 13px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    font-family: sans-serif;
+
+    &--valute {
+      font-size: 14px;
     }
 
-    &--cart {
-      fill: $white;
-      width: 16px;
-      height: 16px;
+    &--old {
+      font-size: 12px;
     }
+  }
+}
+
+.product-status {
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: $green;
+  margin-bottom: 5px;
+
+  &--end {
+    color: $red;
+  }
+
+  &--none {
+    color: $silver;
+  }
+}
+
+.news-card {
+  max-width: 410px;
+  width: 100%;
+  border-radius: 6px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 3px 3px rgba($black, 0.25);
+
+  &:hover {
+    p {
+      color: $green;
+      transition: color 0.3s;
+    }
+  }
+
+  &__date {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    width: 65px;
+    height: 75px;
+    border-radius: 0 0 6px 6px;
+    text-transform: uppercase;
+    color: $black;
+    overflow: hidden;
+  }
+
+  &__mounth {
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.1em;
+  }
+
+  &__day {
+    font-family: 'Ruda', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  &__img {
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+    width: 100%;
+    height: 240px;
+  }
+
+  &__text {
+    padding: 18px;
+    color: $black;
+    line-height: 1.5;
+    font-size: 16px;
+    font-weight: 600;
+    @include clamp(3);
   }
 }
 
@@ -485,7 +610,6 @@ body {
   margin-bottom: 3px;
   position: relative;
   @include clamp;
-  -webkit-line-clamp: 1;
 
   &--old {
     color: $silver;
@@ -512,7 +636,7 @@ body {
   font-size: 10px;
   line-height: 1;
   text-transform: uppercase;
-  color: #fff;
+  color: $white;
 
   &__item {
     padding: 3px 6px;
