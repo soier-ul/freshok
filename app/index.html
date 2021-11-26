@@ -17,10 +17,143 @@
   <div class="wrapper">
 
     <header class="header">
-      <nav>
+      <div class="mobile-menu">
+        <div class="mobile-menu__top">
+          <a class="logo logo--mobile" href="#">
+            <img class="logo__img" src="images/logo-green.svg" alt="логотип" width="200">
+          </a>
+
+          <button class="burger burger--mobile">
+            <span class="burger__row">
+            </span>
+          </button>
+        </div>
+
+        <div class="mobile-menu__box">
+          <svg>
+            <use xlink:href="images/sprite.svg#icon-user"></use>
+          </svg>
+          <a class="entry__link" href="#">Вход</a>
+          <a class="entry__link" href="#">Регистрация</a>
+        </div>
+
+        <a class="mobile-menu__link" href="#">
+          <svg>
+            <use xlink:href="images/sprite.svg#icon-select-nav"></use>
+          </svg>
+          Каталог товаров
+        </a>
+
+        <address class="address address--mobile">
+          <div class="address__info">
+            <a class="address__link link-animation" href="tel:+7907288365">
+              <svg>
+                <use xlink:href="images/sprite.svg#icon-tel"></use>
+              </svg>
+              +7 907 288 365
+            </a>
+            <span class="address__text">
+              <svg>
+                <use xlink:href="images/sprite.svg#icon-marker"></use>
+              </svg>
+              Санкт-Петербург, ул. Ленина, 1
+            </span>
+          </div>
+
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__link" href="#" target="_blank">
+                <svg>
+                  <use xlink:href="images/sprite.svg#icon-facebook"></use>
+                </svg>
+                <span class="sr-only">ссылка на фейсбук</span>
+              </a>
+            </li>
+
+            <li class="social__item">
+              <a class="social__link" href="#" target="_blank">
+                <svg>
+                  <use xlink:href="images/sprite.svg#icon-youtube"></use>
+                </svg>
+                <span class="sr-only">ссылка на ютуб</span>
+              </a>
+            </li>
+
+            <li class="social__item">
+              <a class="social__link" href="#" target="_blank">
+                <svg>
+                  <use xlink:href="images/sprite.svg#icon-telegram"></use>
+                </svg>
+                <span class="sr-only">ссылка на телеграм</span>
+              </a>
+            </li>
+
+            <li class="social__item">
+              <a class="social__link" href="#" target="_blank">
+                <svg>
+                  <use xlink:href="images/sprite.svg#icon-instagram"></use>
+                </svg>
+                <span class="sr-only">ссылка на инстаграм</span>
+              </a>
+            </li>
+          </ul>
+        </address>
+
+        <div class="mobile-menu__bottom">
+          <ul class="menu menu--mobile">
+            <li class="menu__item">
+              <a class="menu__link link-animation" href="#">
+                Доставка
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link link-animation" href="#">
+                О нас
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link link-animation" href="#">
+                Новости
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link link-animation" href="#">
+                Контакты
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link link-animation" href="#">
+                Акции
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link link-animation" href="#">
+                Вакансии
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link link-animation" href="#">
+                Отзывы
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link link-animation" href="#">
+                Публичная оферта
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <nav class="header__nav">
         <div class="header__top">
           <div class="container">
             <div class="header__top-inner">
+              <button class="burger">
+                <span class="burger__row">
+                </span>
+              </button>
+
               <address class="header__address">
                 <a class="header__address-link header__address-link--address link-animation" href="#">
                   <svg>
@@ -35,6 +168,7 @@
                   горячая линия 24/7
                 </a>
               </address>
+
               <ul class="menu">
                 <li class="menu__item">
                   <a class="menu__link link-animation" href="#">
@@ -61,6 +195,10 @@
             <div class="header__bottom-inner">
               <a class="logo" href="#">
                 <img class="logo__img" src="images/logo.svg" alt="логотип" width="200">
+              </a>
+
+              <a class="logo-short" href="#">
+                <img class="logo-short__img" src="images/logo-short.svg" alt="логотип" width="37">
               </a>
 
               <div class="header__catalog">
@@ -133,7 +271,8 @@
               </div>
 
               <form class="header__form">
-                <label for="search"></label>
+                <!--А я не понял зачем вводить что то в label...в макете же ничего нет, можно тогда скрытым сделать? я че то не догоняю((   -->
+                <label class="sr-only" for="search">Введите название товара</label>
                 <input class="header__form-field" type="search" id="search" name="search"
                   placeholder="Найти в магазине ..." required>
                 <button class="input-button btn-animation" type="submit">
@@ -142,7 +281,15 @@
               </form>
 
               <ul class="user-nav">
-                <li class="user-nav__item">
+                <li class="user-nav__item user-nav__item-search">
+                  <button class="user-nav__link search-btn" type="button">
+                    <svg>
+                      <use xlink:href="images/sprite.svg#icon-search"></use>
+                    </svg>
+                    <span class="sr-only"> открыть профиль</span>
+                  </button>
+                </li>
+                <li class="user-nav__item user-nav__item--user">
                   <button class="user-nav__link" type="button">
                     <svg>
                       <use xlink:href="images/sprite.svg#icon-user"></use>
@@ -150,7 +297,7 @@
                     <span class="sr-only"> открыть профиль</span>
                   </button>
                 </li>
-                <li class="user-nav__item">
+                <li class="user-nav__item user-nav__item--chosen">
                   <button class="user-nav__link" type="button">
                     <svg>
                       <use xlink:href="images/sprite.svg#icon-heart"></use>
@@ -172,11 +319,18 @@
             </div>
           </div>
         </div>
+        <form class="form-mobile">
+          <label class="sr-only" for="search">Введите название товара</label>
+          <input class="form-mobile__field" type="search" id="search" name="search" placeholder="Я ищу..." required>
+          <button class="form-mobile__btn btn-animation" type="submit">
+            поиск
+          </button>
+        </form>
       </nav>
-      <h1 class="sr-only"></h1>
     </header>
 
     <main class="main">
+      <h1 class="sr-only"></h1>
 
       <setion class="hero">
         <h2 class="sr-only"></h2>
@@ -247,40 +401,33 @@
       </setion>
 
       <div class="advantage">
-        <h2 class="sr-only">преимущества</h2>
         <div class="container">
           <ul class="advantage__inner">
             <li class="advantage__item advantage__item--scooter">
-              <h3 class="advantage__title">
+              <span class="advantage__title">
                 Бесплатная доставка
-              </h3>
-              <div class="advantage__text">
-                <p>
-                  Для заказов на сумму от 500 ₽
-                </p>
-              </div>
+              </span>
+              <span class="advantage__text">
+                Для заказов на сумму от 500 ₽
+              </span>
             </li>
 
             <li class="advantage__item advantage__item--return">
-              <h3 class="advantage__title">
+              <span class="advantage__title">
                 Возврат товара
-              </h3>
-              <div class="advantage__text">
-                <p>
-                  Если товары были испорчены
-                </p>
-              </div>
+              </span>
+              <span class="advantage__text">
+                Если товары были испорчены
+              </span>
             </li>
 
             <li class="advantage__item advantage__item--support">
-              <h3 class="advantage__title">
+              <span class="advantage__title">
                 Поддержка 24/7
-              </h3>
-              <div class="advantage__text">
-                <p>
-                  Лучшие операторы
-                </p>
-              </div>
+              </span>
+              <span class="advantage__text">
+                Лучшие операторы
+              </span>
             </li>
           </ul>
         </div>
@@ -292,19 +439,29 @@
 
           <ul class="mix-filter">
             <li class="mix-filter__item">
-              <button class="mix-filter__btn animation" type="button" data-filter="all">Все товары</button>
+              <button class="mix-filter__btn animation" type="button" data-filter="all">
+                Все товары
+              </button>
             </li>
             <li class="mix-filter__item">
-              <button class="mix-filter__btn animation" type="button" data-filter=".category-a">фрукты</button>
+              <button class="mix-filter__btn animation" type="button" data-filter=".category-a">
+                фрукты
+              </button>
             </li>
             <li class="mix-filter__item">
-              <button class="mix-filter__btn animation" type="button" data-filter=".category-b">овощи</button>
+              <button class="mix-filter__btn animation" type="button" data-filter=".category-b">
+                овощи
+              </button>
             </li>
             <li class="mix-filter__item">
-              <button class="mix-filter__btn animation" type="button" data-filter=".category-c">напитки</button>
+              <button class="mix-filter__btn animation" type="button" data-filter=".category-c">
+                напитки
+              </button>
             </li>
             <li class="mix-filter__item">
-              <button class="mix-filter__btn animation" type="button" data-filter=".category-d">бакалея</button>
+              <button class="mix-filter__btn animation" type="button" data-filter=".category-d">
+                бакалея
+              </button>
             </li>
           </ul>
 
@@ -341,19 +498,12 @@
 
                 <div class="product-card__price">
                   <span class="price price--old">
-                    1999 <span class="price--valute">₽</span>
+                    1999 <span>₽</span>
                   </span>
                   <span class="price">
-                    999 <span class="price--valute">₽</span>
+                    999 <span>₽</span>
                   </span>
                 </div>
-
-                <button class="btn-basket btn-animation" type="button">
-                  <svg>
-                    <use xlink:href="images/sprite.svg#icon-cart"></use>
-                  </svg>
-                  <span class="sr-only">В корзину</span>
-                </button>
 
                 <button class="btn-basket btn-animation" type="button">
                   <svg>
@@ -712,17 +862,17 @@
         <h2 class="sr-only">предложения</h2>
         <div class="container">
           <ul class="offer__inner">
-            <li class="offer__item" style="background-image: url(images/offer/1.jpg);">
+            <li class="offer__item offer__item--long" style="background-image: url(images/offer/1.jpg);">
               <span class="offer__subtitle">
                 свежайшие фрукты
               </span>
 
-              <h3 class="offer__title offer__title--long">
+              <h3 class="offer__title">
                 начни фруктовое лето
                 всего от 99 ₽
               </h3>
 
-              <a class="offer__link offer__link--white link-animation" href="#">
+              <a class="offer__link link-animation" href="#">
                 перейти к покупкам
               </a>
             </li>
@@ -764,13 +914,19 @@
 
           <ul class="mix-filter">
             <li class="mix-filter__item">
-              <button class="mix-filter__btn animation" type="button" data-filter="all">Все товары</button>
+              <button class="mix-filter__btn animation" type="button" data-filter="all">
+                Все товары
+              </button>
             </li>
             <li class="mix-filter__item">
-              <button class="mix-filter__btn animation" type="button" data-filter=".category-a">новинки</button>
+              <button class="mix-filter__btn animation" type="button" data-filter=".category-a">
+                новинки
+              </button>
             </li>
             <li class="mix-filter__item">
-              <button class="mix-filter__btn animation" type="button" data-filter=".category-b">хиты</button>
+              <button class="mix-filter__btn animation" type="button" data-filter=".category-b">
+                хиты
+              </button>
             </li>
           </ul>
 
@@ -796,18 +952,20 @@
                       В наличии
                     </span>
 
-                    <div class="little-card__price">
-                      <span class="price">
-                        999<span class="price--valute">₽</span>
-                      </span>
-                      <span class="price price--old">
-                        1999 <span>₽</span>
-                      </span>
-                    </div>
+                    <div class="little-card__buy">
+                      <div class="little-card__price">
+                        <span class="little-card__price-num">
+                          999<span class="price-valute">₽</span>
+                        </span>
+                        <span class="little-card__price-num little-card__price-num--old">
+                          1999 <span>₽</span>
+                        </span>
+                      </div>
 
-                    <div class="little-card__rating">
-                      <span class="little-card__rate">4.5</span>
-                      <span class="little-card__star"></span>
+                      <div class="little-card__rating">
+                        <span class="little-card__rate">4.5</span>
+                        <span class="little-card__star"></span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -835,18 +993,20 @@
                       заканчивается
                     </span>
 
-                    <div class="little-card__price">
-                      <span class="price">
-                        777<span class="price--valute">₽</span>
-                      </span>
-                      <span class="price price--old">
-                        877 <span>₽</span>
-                      </span>
-                    </div>
+                    <div class="little-card__buy">
+                      <div class="little-card__price">
+                        <span class="little-card__price-num">
+                          999<span class="price-valute">₽</span>
+                        </span>
+                        <span class="little-card__price-num little-card__price-num--old">
+                          1999 <span>₽</span>
+                        </span>
+                      </div>
 
-                    <div class="little-card__rating">
-                      <span class="little-card__rate">4.9</span>
-                      <span class="little-card__star"></span>
+                      <div class="little-card__rating">
+                        <span class="little-card__rate">4.5</span>
+                        <span class="little-card__star"></span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -870,21 +1030,23 @@
                     </h3>
 
                     <span class="product-status product-status--none">
-                      Нет в наличии
+                      нет в наличии
                     </span>
 
-                    <div class="little-card__price">
-                      <span class="price">
-                        999<span class="price--valute">₽</span>
-                      </span>
-                      <span class="price price--old">
-                        1999 <span>₽</span>
-                      </span>
-                    </div>
+                    <div class="little-card__buy">
+                      <div class="little-card__price">
+                        <span class="little-card__price-num">
+                          999<span class="price-valute">₽</span>
+                        </span>
+                        <span class="little-card__price-num little-card__price-num--old">
+                          1999 <span>₽</span>
+                        </span>
+                      </div>
 
-                    <div class="little-card__rating">
-                      <span class="little-card__rate">5.0</span>
-                      <span class="little-card__star"></span>
+                      <div class="little-card__rating">
+                        <span class="little-card__rate">4.5</span>
+                        <span class="little-card__star"></span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -911,25 +1073,27 @@
                       В наличии
                     </span>
 
-                    <div class="little-card__price">
-                      <span class="price">
-                        660<span class="price--valute">₽</span>
-                      </span>
-                      <span class="price price--old">
-                        960 <span>₽</span>
-                      </span>
-                    </div>
+                    <div class="little-card__buy">
+                      <div class="little-card__price">
+                        <span class="little-card__price-num">
+                          999<span class="price-valute">₽</span>
+                        </span>
+                        <span class="little-card__price-num little-card__price-num--old">
+                          1999 <span>₽</span>
+                        </span>
+                      </div>
 
-                    <div class="little-card__rating">
-                      <span class="little-card__rate">5.0</span>
-                      <span class="little-card__star"></span>
+                      <div class="little-card__rating">
+                        <span class="little-card__rate">4.5</span>
+                        <span class="little-card__star"></span>
+                      </div>
                     </div>
                   </div>
                 </a>
               </article>
             </li>
 
-            <li class="promotion__item mix category-a" data-order="1">
+            <li class="promotion__item mix category-b" data-order="1">
               <article class="little-card">
                 <a class="little-card__link" href="#">
                   <div class="badges">
@@ -949,18 +1113,20 @@
                       В наличии
                     </span>
 
-                    <div class="little-card__price">
-                      <span class="price">
-                        999<span class="price--valute">₽</span>
-                      </span>
-                      <span class="price price--old">
-                        1199 <span>₽</span>
-                      </span>
-                    </div>
+                    <div class="little-card__buy">
+                      <div class="little-card__price">
+                        <span class="little-card__price-num">
+                          999<span class="price-valute">₽</span>
+                        </span>
+                        <span class="little-card__price-num little-card__price-num--old">
+                          1999 <span>₽</span>
+                        </span>
+                      </div>
 
-                    <div class="little-card__rating">
-                      <span class="little-card__rate">4.9</span>
-                      <span class="little-card__star"></span>
+                      <div class="little-card__rating">
+                        <span class="little-card__rate">4.5</span>
+                        <span class="little-card__star"></span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -988,18 +1154,20 @@
                       заканчивается
                     </span>
 
-                    <div class="little-card__price">
-                      <span class="price">
-                        180<span class="price--valute">₽</span>
-                      </span>
-                      <span class="price price--old">
-                        230 <span>₽</span>
-                      </span>
-                    </div>
+                    <div class="little-card__buy">
+                      <div class="little-card__price">
+                        <span class="little-card__price-num">
+                          180<span class="price-valute">₽</span>
+                        </span>
+                        <span class="little-card__price-num little-card__price-num--old">
+                          230 <span>₽</span>
+                        </span>
+                      </div>
 
-                    <div class="little-card__rating">
-                      <span class="little-card__rate">4.5</span>
-                      <span class="little-card__star"></span>
+                      <div class="little-card__rating">
+                        <span class="little-card__rate">4.5</span>
+                        <span class="little-card__star"></span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1026,18 +1194,20 @@
                       В наличии
                     </span>
 
-                    <div class="little-card__price">
-                      <span class="price">
-                        3990<span class="price--valute">₽</span>
-                      </span>
-                      <span class="price price--old">
-                        5990 <span>₽</span>
-                      </span>
-                    </div>
+                    <div class="little-card__buy">
+                      <div class="little-card__price">
+                        <span class="little-card__price-num">
+                          3990<span class="price-valute">₽</span>
+                        </span>
+                        <span class="little-card__price-num little-card__price-num--old">
+                          5990 <span>₽</span>
+                        </span>
+                      </div>
 
-                    <div class="little-card__rating">
-                      <span class="little-card__rate">4.8</span>
-                      <span class="little-card__star"></span>
+                      <div class="little-card__rating">
+                        <span class="little-card__rate">4.5</span>
+                        <span class="little-card__star"></span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1064,18 +1234,20 @@
                       В наличии
                     </span>
 
-                    <div class="little-card__price">
-                      <span class="price">
-                        999<span class="price--valute">₽</span>
-                      </span>
-                      <span class="price price--old">
-                        1999 <span>₽</span>
-                      </span>
-                    </div>
+                    <div class="little-card__buy">
+                      <div class="little-card__price">
+                        <span class="little-card__price-num">
+                          999<span class="price-valute">₽</span>
+                        </span>
+                        <span class="little-card__price-num little-card__price-num--old">
+                          1999 <span>₽</span>
+                        </span>
+                      </div>
 
-                    <div class="little-card__rating">
-                      <span class="little-card__rate">4.6</span>
-                      <span class="little-card__star"></span>
+                      <div class="little-card__rating">
+                        <span class="little-card__rate">4.5</span>
+                        <span class="little-card__star"></span>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1150,7 +1322,7 @@
         <div class="container">
           <div class="news__top">
             <h2 class="news__title title">Наши новости</h2>
-            <a class="news__link link-animation" href="#">все новости</a>
+            <a class="news__link" href="#">все новости</a>
           </div>
 
           <ul class="news__list">
@@ -1162,13 +1334,11 @@
                     <span class="news-card__mounth">июль</span>
                     <span class="news-card__day">15</span>
                   </time>
-                  <img class="news-card__img" src="images/news/1.jpg" alt="">
-                  <div class="news-card__text" href="#">
-                    <p>
-                      Событие этого лета: распродажа сезонных фруктов в онлайн-маркете ФрешОК. Торопись, пока всё не
-                      разобрали!
-                    </p>
-                  </div>
+                  <img class="news-card__img" src="images/news/1.jpg" alt="клубника в миске">
+                  <h3 class="news-card__title">
+                    Событие этого лета: распродажа сезонных фруктов в онлайн-маркете ФрешОК. Торопись, пока всё не
+                    разобрали!
+                  </h3>
                 </a>
               </article>
             </li>
@@ -1180,12 +1350,10 @@
                     <span class="news-card__mounth">май</span>
                     <span class="news-card__day">07</span>
                   </time>
-                  <img class="news-card__img" src="images/news/2.jpg" alt="">
-                  <div class="news-card__text" href="#">
-                    <p>
-                      Шикарнейший выбор манго в нашем онлайн-маркете
-                    </p>
-                  </div>
+                  <img class="news-card__img" src="images/news/2.jpg" alt="разрезанное манго на доске">
+                  <h3 class="news-card__title">
+                    Шикарнейший выбор манго в нашем онлайн-маркете
+                  </h3>
                 </a>
               </article>
             </li>
@@ -1193,16 +1361,14 @@
             <li class="news__item">
               <article class="news-card">
                 <a class="news-card__link" href="#">
-                  <time class="news-card__date" datetime="2021-02-20">
+                  <time class="news-card__date" datetime="2021-05-07">
                     <span class="news-card__mounth">февраль</span>
                     <span class="news-card__day">20</span>
                   </time>
-                  <img class="news-card__img" src="images/news/3.jpg" alt="">
-                  <div class="news-card__text" href="#">
-                    <p>
-                      Всё, что вы хотели знать о папайя
-                    </p>
-                  </div>
+                  <img class="news-card__img" src="images/news/3.jpg" alt="разрезанная папайя">
+                  <h3 class="news-card__title">
+                    Всё, что вы хотели знать о папайя
+                  </h3>
                 </a>
               </article>
             </li>
@@ -1216,23 +1382,24 @@
 
     <footer class="footer">
       <div class="container">
-        <a class="logo" href="#">
+        <a class="logo logo--footer" href="#">
           <img class="logo__img" src="images/logo.svg" alt="логотип" width="200">
         </a>
-
         <div class="footer__top">
-          <div class="footer__descr">
-            <p>Следите за нашими акциями</p>
-          </div>
+          <div class="footer__form-wrapper">
+            <div class="footer__descr">
+              <p>Следите за нашими акциями</p>
+            </div>
 
-          <form class="footer__form">
-            <label for="email"></label>
-            <input class="footer__form-field" type="email" id="email" name="user_email" placeholder="email@email.com"
-              required>
-            <button class="input-button footer__form-button btn-animation" type="submit">
-              подписаться
-            </button>
-          </form>
+            <form class="footer__form">
+              <label class="sr-only" for="search">Введите название товара</label>
+              <input class="footer__form-field" type="email" id="email" name="user_email" placeholder="email@email.com"
+                required>
+              <button class="input-button footer__form-button btn-animation" type="submit">
+                подписаться
+              </button>
+            </form>
+          </div>
 
           <ul class="footer__list">
             <li class="footer__item">
@@ -1277,25 +1444,24 @@
             </li>
           </ul>
 
-          <address class="footer__address">
-            <ul class="footer__address-list">
-              <li class="footer__address-item">
-                <a class="tel link-animation" href="tel:+7907288365">
-                  Горячая линия+7 907 288 365
-                </a>
-              </li>
+          <address class="address address--footer">
 
-              <li class="footer__address-item">
-                <p>Санкт-Петербург, ул. Ленина, 1</p>
-              </li>
-            </ul>
+            <div class="address__info">
+              <a class="address__link link-animation" href="tel:+7907288365">
+                Горячая линия+7 907 288 365
+              </a>
+              <span class="address__text">
+                Санкт-Петербург, ул. Ленина, 1
+              </span>
+            </div>
 
-            <ul class="social">
+            <ul class="social social--footer">
               <li class="social__item">
                 <a class="social__link" href="#" target="_blank">
                   <svg>
                     <use xlink:href="images/sprite.svg#icon-facebook"></use>
                   </svg>
+                  <span class="sr-only">ссылка на фейсбук</span>
                 </a>
               </li>
 
@@ -1304,6 +1470,7 @@
                   <svg>
                     <use xlink:href="images/sprite.svg#icon-youtube"></use>
                   </svg>
+                  <span class="sr-only">ссылка на ютуб</span>
                 </a>
               </li>
 
@@ -1312,6 +1479,7 @@
                   <svg>
                     <use xlink:href="images/sprite.svg#icon-telegram"></use>
                   </svg>
+                  <span class="sr-only">ссылка на телеграм</span>
                 </a>
               </li>
 
@@ -1320,6 +1488,7 @@
                   <svg>
                     <use xlink:href="images/sprite.svg#icon-instagram"></use>
                   </svg>
+                  <span class="sr-only">ссылка на инстаграм</span>
                 </a>
               </li>
             </ul>
@@ -1331,12 +1500,11 @@
 
           <ul class="pay">
             <li class="pay__item" style="background-image: url(images/social/visa.svg);"></li>
-            <li class="pay__item" style="background-image: url(images/social/mc.svg);"></li>
+            <li class="pay__item pay__item--mc" style="background-image: url(images/social/mc.svg);"></li>
           </ul>
         </div>
       </div>
     </footer>
-
 
 
   </div>

@@ -6,6 +6,13 @@
 
 .header {
 
+  &__nav {
+
+    @include max-w ($xl) {
+      overflow: hidden;
+    }
+  }
+
   &__top {
     background-color: $black-800;
     color: $white;
@@ -13,6 +20,10 @@
     font-size: 13px;
     text-transform: uppercase;
     padding: 17px 0 15px;
+
+    @include max-w ($lg) {
+      padding: 0;
+    }
   }
 
   &__top-inner {
@@ -33,6 +44,13 @@
     outline: transparent;
     position: relative;
 
+    @include max-w ($lg) {
+      font-size: 0;
+      width: 45px;
+      height: 45px;
+      margin-right: 15px;
+    }
+
     svg {
       position: absolute;
       width: 32px;
@@ -40,6 +58,12 @@
       fill: $white;
       left: 0;
       bottom: 0;
+
+      @include max-w ($lg) {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
     &:last-child {
@@ -103,6 +127,10 @@
     position: relative;
     z-index: 3;
     margin-left: 22px;
+
+    @include max-w($xl) {
+      display: none;
+    }
 
     &--active {
 
@@ -177,6 +205,10 @@
   &__bottom {
     background-color: $green;
     padding: 25px 0;
+
+    @include max-w ($md) {
+      padding: 0;
+    }
   }
 
   &__bottom-inner {
@@ -191,6 +223,15 @@
     margin-left: auto;
     margin-right: 45px;
     position: relative;
+
+    @include max-w($xl) {
+      max-width: 335px;
+      margin-right: 10px;
+    }
+
+    @include max-w ($md) {
+      display: none;
+    }
 
     &::before {
       content: '';
@@ -210,8 +251,17 @@
   &__form-field {
     width: 100%;
     padding: 15px 170px 15px 50px;
-    outline: transparent;
     border-radius: 6px;
+    outline: transparent;
+    transition: box-shadow 0.3s;
+
+    @include max-w($xl) {
+      padding: 15px 120px 15px 50px;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 4px $green-200;
+    }
 
     &::placeholder {
       color: $black-800;
@@ -226,9 +276,29 @@
   &__item {
     margin-right: 15px;
 
+    @include max-w($md) {
+      margin-right: 0;
+    }
+
     &:last-child {
       margin-right: 0;
     }
+
+    &--chosen,
+    &--user {
+      @include max-w($md) {
+        display: none;
+      }
+    }
+  }
+
+  &__item-search {
+    display: none;
+
+    @include max-w($md) {
+      display: block;
+    }
+
   }
 
   &__link {
@@ -244,6 +314,11 @@
       height: 32px;
       fill: $white;
       transform: translate(-50%, -50%);
+
+      @include max-w($xl) {
+        width: 24px;
+        height: 24px;
+      }
     }
 
     &:focus {
@@ -272,25 +347,39 @@
     font-size: 10px;
     line-height: 18px;
     text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 
 .hero {
 
   &__slide {
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    display: block;
-    padding-top: 140px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    min-height: 600px;
+    z-index: 10;
+
+    @include max-w($md) {
+      min-height: 420px;
+    }
+
+    @include max-w($sm) {
+      min-height: 320px;
+    }
   }
 
   &__item {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba($white, 0.8);
     padding: 24px;
     border-radius: 4px;
+    margin-top: 140px;
+
+    @include max-w($md) {
+      margin-top: 60px;
+      padding: 15px;
+    }
   }
 
   &__title {
@@ -302,6 +391,19 @@
     margin-bottom: 12px;
     max-width: 770px;
     @include clamp(3);
+
+    @include max-w($lg) {
+      font-size: 42px;
+    }
+
+    @include max-w($md) {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    @include max-w($sm) {
+      font-size: 20px;
+    }
   }
 
   &__discount {
@@ -313,6 +415,11 @@
     margin-bottom: 32px;
     font-size: 16px;
     @include clamp(2);
+
+    @include max-w($lg) {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
   }
 
   &__arrow {
@@ -320,9 +427,41 @@
     z-index: 1;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba($white, 0.8);
     border-radius: 6px;
     outline: transparent;
+    width: 60px;
+    height: 60px;
+    transition: box-shadow 0.4s, background-color 0.4s;
+
+    svg {
+      width: 19px;
+      height: 32px;
+      fill: $black-500;
+      transform: translateY(2px);
+      transition: fill 0.4s;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($green, 0.5);
+    }
+
+    &:hover {
+      background-color: $green-200;
+
+      svg {
+        fill: $green;
+      }
+    }
+
+    &:active {
+      background-color: rgba($white, 0.8);
+      transition: 0s;
+
+      svg {
+        fill: $green;
+      }
+    }
 
     &--next {
       right: 60px;
@@ -331,43 +470,33 @@
     &--prev {
       left: 60px;
     }
+  }
 
-    &--next,
-    &--prev {
-      width: 60px;
-      height: 60px;
-      transition: box-shadow 0.4s,
-        background-color 0.4s;
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    font-size: 0;
+  }
 
-      svg {
-        width: 19px;
-        height: 32px;
-        fill: $black-500;
-        transform: translateY(2px);
-        transition: fill 0.4s;
-      }
+  .slick-dots li {
+    margin-right: 15px;
+  }
 
-      &:focus {
-        box-shadow: 0 0 0 3px rgba($green, 0.5);
-      }
+  .slick-dots button {
+    width: 10px;
+    height: 10px;
+    background-color: $white;
+    border-radius: 50%;
+    border: 1px solid $silver;
+  }
 
-      &:hover {
-        background-color: $green-200;
-
-        svg {
-          fill: $green;
-        }
-      }
-
-      &:active {
-        background-color: rgba($white, 0.8);
-        transition: 0s;
-
-        svg {
-          fill: $green;
-        }
-      }
-    }
+  .slick-active button {
+    background-color: $green;
+    border: $green;
   }
 }
 
@@ -375,9 +504,18 @@
   padding: 50px 0 30px;
   background-color: $silver-100;
 
+  @include max-w($lg) {
+    padding: 30px 0;
+  }
+
   &__inner {
     display: flex;
     justify-content: center;
+
+    @include max-w($lg) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   &__item {
@@ -386,6 +524,14 @@
     position: relative;
     padding-left: 75px;
     margin: 0 33px;
+
+    @include max-w($lg) {
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
 
     &::before {
       content: '';
@@ -432,28 +578,56 @@
   padding: 70px 0;
   text-align: center;
 
+  @include max-w ($md) {
+    padding: 45px 0;
+  }
+
   &__inner {
+    text-align: left;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 18px;
-    text-align: left;
+
+    @include max-w ($md) {
+      margin: 0 -15px 20px;
+    }
+
+    @include max-w ($sm) {
+      margin: 0 -15px 20px;
+    }
   }
 
   &__item {
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-bottom: 30px;
+    margin: 0 15px 30px 15px;
     display: flex;
+
+    @include max-w ($md) {
+      margin: 0 10px 20px;
+
+    }
+
+    @include max-w ($sm) {
+      margin: 0 2px 4px;
+    }
   }
 }
 
 .offer {
   padding-bottom: 72px;
 
+  @include max-w ($lg) {
+    padding-bottom: 45px;
+  }
+
   &__inner {
     display: flex;
     justify-content: space-between;
+
+    @include max-w ($xl) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   &__item {
@@ -469,10 +643,23 @@
     text-transform: uppercase;
     transition: color 0.3s, text-shadow 0.3s;
 
-    &:first-child {
+    @include max-w ($xl) {
+      margin: 0 10px 15px 10px;
+      max-width: 630px;
+    }
+
+    &--long {
       max-width: 630px;
       color: $white;
       text-shadow: 2px 2px 0 rgba($black, 0.25);
+
+      .offer__title {
+        max-width: 360px;
+      }
+
+      .offer__link::before {
+        background-color: $white;
+      }
     }
   }
 
@@ -494,8 +681,8 @@
     max-width: 160px;
     @include clamp(3);
 
-    &--long {
-      max-width: 360px;
+    @include max-w ($md) {
+      font-size: 24px;
     }
   }
 
@@ -524,10 +711,6 @@
     &:focus::before {
       content: none;
     }
-
-    &--white::before {   
-      background-color: $white;
-    }
   }
 }
 
@@ -536,12 +719,20 @@
   background-color: $silver-100;
   text-align: center;
 
+  @include max-w ($lg) {
+    padding: 48px 0;
+  }
+
   &__inner {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     text-align: left;
     margin-bottom: 15px;
+
+    @include max-w ($lg) {
+      margin-bottom: 10px;
+    }
   }
 
   &__item {
@@ -549,11 +740,19 @@
     margin-left: 15px;
     margin-bottom: 30px;
     display: flex;
-  } 
+
+    @include max-w ($lg) {
+      margin: 0 7px 15px 7px;
+    }
+  }
 }
 
 .brands {
   padding: 72px 0;
+
+  @include max-w ($lg) {
+    padding: 48px 0;
+  }
 
   &__slide {
     opacity: 0.5;
@@ -561,13 +760,25 @@
     margin-left: 70px;
     margin-right: 70px;
 
+    @include max-w ($md) {
+      margin-left: 45px;
+    }
+
+    @include max-w ($sm) {
+      margin-left: 55px;
+    }
+
+    @include max-w ($xs) {
+      margin-left: 35px;
+    }
+
     &:hover {
       opacity: 1;
     }
   }
 
   &__img {
-    object-fit: cover;
+    object-fit: contain;
     max-height: 58px;
   }
 
@@ -580,15 +791,29 @@
 .news {
   padding-bottom: 72px;
 
+  @include max-w ($xl) {
+    padding-bottom: 48px;
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+
+    @include max-w ($sm) {
+      flex-direction: column;
+      align-items: start;
+      margin-bottom: 25px;
+    }
   }
 
   &__title {
     margin-bottom: 0;
+
+    @include max-w ($sm) {
+      margin-bottom: 12px;
+    }
   }
 
   &__link {
@@ -597,9 +822,29 @@
     text-transform: uppercase;
     font-weight: 700;
     position: relative;
-    outline: transparent;
     border-radius: 3px;
-    transition: color 0.3s, opacity 0.3s, box-shadow 0.3s;
+    outline: transparent;
+    transition: color 0.3s, box-shadow 0.3s, background-color 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+    }
+
+    &:hover {
+      color: $green-900;
+    }
+
+    &:hover::before {
+      background-color: $green-900;
+    }
+
+    &:active::before {
+      background-color: $green-200;
+    }
+
+    &:focus:active {
+      box-shadow: none;
+    }
 
     &::before {
       content: '';
@@ -610,18 +855,34 @@
       background-color: $green;
     }
 
-    &:focus::before {
-      content: none;
+    &::after {
+      @extend %area;
     }
   }
 
   &__list {
     display: flex;
     justify-content: space-between;
+
+    @include max-w ($xl) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   &__item {
     display: flex;
+    max-width: 410px;
+    width: 100%;
+
+    @include max-w ($xl) {
+      margin: 0 7px 15px 7px;
+    }
+
+    @include max-w ($md) {
+      margin: 0;
+      margin-bottom: 15px;
+    }
   }
 }
 
@@ -638,6 +899,10 @@
     height: 1px;
     width: 100%;
     background-color: rgba($white, 0.1);
+
+    @include max-w ($sm) {
+      bottom: 123px;
+    }
   }
 
   &__top {
@@ -645,23 +910,34 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 0 30px;
-    position: relative;
+
+    @include max-w ($xl) {
+      flex-direction: column-reverse;
+      align-items: center;
+      padding-bottom: 0;
+      overflow-x: hidden;
+    }
+  }
+
+  &__form-wrapper {
+    margin-right: 75px;
+    margin-bottom: 20px;
+
+    @include max-w ($xl) {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
   }
 
   &__descr {
     line-height: 1;
     margin-bottom: 18px;
     @include clamp(2);
-    position: absolute;
-    top: 22px;
   }
 
   &__form {
-    margin-top: 30px;
     max-width: 306px;
     width: 100%;
-    margin-right: 75px;
-    margin-bottom: 20px;
     position: relative;
   }
 
@@ -669,8 +945,13 @@
     height: 40px;
     width: 100%;
     padding: 11px 140px 12px 12px;
-    outline: transparent;
     border-radius: 6px;
+    outline: transparent;
+    transition: box-shadow 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 4px $green-200;
+    }
 
     &::placeholder {
       color: $black-500;
@@ -694,23 +975,26 @@
     column-count: 3;
     column-gap: 75px;
     column-width: 135px;
+
+    @include max-w ($xl) {
+      column-gap: 150px;
+      margin-bottom: 30px;
+    }
+
+    @include max-w ($lg) {
+      column-gap: 40px;
+      column-count: 2;
+      margin-right: -65px;
+    }
   }
 
   &__item {
     margin-bottom: 18px;
   }
 
-  &__address-list {
-    margin-bottom: 18px;
-    letter-spacing: 0;
-  }
-
-  &__address-item {
-    margin-bottom: 18px;
-    @include clamp(2);
-
-    &:last-child {
-      margin-bottom: 0;
+  &__link {
+    @include max-w ($xl) {
+      padding: 13px 3px;
     }
   }
 
@@ -719,5 +1003,11 @@
     justify-content: space-between;
     align-items: flex-end;
     padding: 30px 0;
+
+    @include max-w ($sm) {
+      flex-direction: column-reverse;
+      align-items: center;
+      padding: 30px 0 24px;
+    }
   }
 }

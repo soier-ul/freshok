@@ -21,6 +21,7 @@ $yellow: #ffb800;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
   @else {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -40,9 +41,13 @@ $yellow: #ffb800;
 }
 
 $xl: 1400px;
+$lg: 992px;
+$md: 768px;
+$sm: 480px;
+$xs: 360px;
 
-@mixin max-w($xl) {
-  @media (max-width: $xl) {
+@mixin max-w($width) {
+  @media (max-width: $width) {
     @content;
   }
 }

@@ -35,6 +35,10 @@ body {
 
 .main {
   flex: 1 0 auto;
+
+  @include max-w ($md) {
+    margin-top: -50px;
+  }
 }
 
 .footer {
@@ -54,8 +58,87 @@ body {
   overflow: hidden;
 }
 
+.burger {
+  display: none;
+  position: relative;
+  width: 50px;
+  height: 50px;
+
+  @include max-w($lg) {
+    display: block;
+  }
+
+  &--mobile {
+
+    .burger__row {
+      background-color: $black-800;
+      width: 0;
+
+      &::after,
+      &::before {
+        background-color: $black-800;
+        width: 25px;
+        transform: translateX(-50%);
+      }
+
+      &::before {
+        transform: rotate(45deg) translate(-3px, 14px);
+      }
+
+      &::after {
+        transform: rotate(-45deg) translate(0, -18px);
+      }
+    }
+  }
+
+  &__row {
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: $white;
+    transform: translate(-50%);
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background-color: $white;
+      left: 0;
+    }
+
+    &::before {
+      bottom: 10px;
+    }
+
+    &::after {
+      top: 10px;
+    }
+  }
+}
+
 .logo {
   display: inline-block;
+
+  @include max-w ($md) {
+    display: none;
+  }
+
+  &--mobile {
+    @include max-w ($md) {
+      display: block;
+    }
+  }
+
+  &--footer {
+    display: block;
+
+    @include max-w ($xl) {
+      display: flex;
+      justify-content: center;
+    }
+  }
 
   &__img {
     object-fit: contain;
@@ -65,7 +148,22 @@ body {
   }
 }
 
+.logo-short {
+  height: 62px;
+  width: 100px;
+  display: none;
+
+  @include max-w ($md) {
+    display: block;
+  }
+
+  &__img {
+    margin-top: 10px
+  }
+}
+
 .btn-animation {
+  outline: transparent;
   transition: background-color 0.5s, box-shadow 0.3s, color 0.4s;
 
   &:focus {
@@ -83,27 +181,6 @@ body {
     svg {
       fill: rgba($white, 0.25);
       transition: fill 0.3s;
-    }
-  }
-}
-
-.menu {
-  display: flex;
-
-  &__item {
-    margin-right: 25px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__link {
-    outline: transparent;
-    position: relative;
-
-    &::after {
-      @extend %area;
     }
   }
 }
@@ -133,7 +210,6 @@ body {
   padding: 12px 24px;
   background-color: $green;
   border-radius: 6px;
-  outline: transparent;
   transition: box-shadow 0.4s, background-color 0.4s, color 0.4s;
   display: inline-block;
 
@@ -166,6 +242,110 @@ body {
   color: $black;
   text-align: center;
   margin-bottom: 30px;
+
+  @include max-w ($md) {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+}
+
+.menu {
+  display: flex;
+
+  @include max-w($lg) {
+    display: none;
+  }
+
+  &--mobile {
+    @include max-w($lg) {
+      display: block;
+    }
+
+    .menu__item {
+      margin-bottom: 15px;
+    }
+
+    .menu__link {
+      display: block;
+    }
+  }
+
+  &__item {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    outline: transparent;
+    position: relative;
+
+    &::after {
+      @extend %area;
+    }
+  }
+}
+
+.form-mobile {
+  position: relative;
+  width: 100%;
+  border: 1px solid $black-800;
+  transition: transform 0.5s;
+  z-index: 10;
+  display: none;
+  transform: translateX(200%);
+
+  &--active {
+    transform: translate(0, -2px);
+  }
+
+  @include max-w ($md) {
+    display: block;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: url(../images/icons/icon-search.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    top: 14px;
+    left: 13px;
+    pointer-events: none;
+  }
+
+  &__field {
+    width: 100%;
+    padding: 14px 120px 14px 45px;
+    outline: transparent;
+    transition: box-shadow 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 4px $green-200;
+    }
+
+    &::placeholder {
+      color: $black-800;
+      letter-spacing: 0.03em;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $white;
+    background-color: $black-800;
+    padding: 14px 25px;
+    letter-spacing: 0.03em;
+  }
 }
 
 .input-button {
@@ -180,7 +360,10 @@ body {
   border-bottom-right-radius: 6px;
   border-top-right-radius: 6px;
   letter-spacing: 0.03em;
-  outline: transparent;
+
+  @include max-w($xl) {
+    padding: 15px 32px;
+  }
 
   &:hover {
     background-color: rgba($black-800, 0.85);
@@ -192,8 +375,17 @@ body {
   justify-content: center;
   margin-bottom: 50px;
 
+  @include max-w ($md) {
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
   &__item {
     margin-right: 24px;
+
+    @include max-w ($md) {
+      margin-bottom: 15px;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -202,12 +394,17 @@ body {
 
   &__btn {
     font-weight: 700;
-    font-size: 15px;
+    font-size: 14px;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     outline: transparent;
     position: relative;
     transition: box-shadow 0.4s;
-    letter-spacing: 0.03em;
+    position: relative;
+
+    &::after {
+      @extend %area;
+    }
   }
 }
 
@@ -252,8 +449,509 @@ body {
   transition: width 0.4s;
 }
 
+.product-card {
+  max-width: 300px;
+  width: 100%;
+  border: 1px solid rgba($black, 0.2);
+  border-radius: 6px;
+  padding: 56px 18px 18px;
+  transition: border 0.3s;
+  position: relative;
+
+  @include max-w ($md) {
+    max-width: 170px;
+  }
+
+  @include max-w ($xs) {
+    max-width: 146px;
+  }
+
+  &:hover {
+    border: 1px solid $green;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    height: 225px;
+    width: 100%;
+
+    @include max-w ($md) {
+      height: 132px;
+    }
+
+    @include max-w ($xs) {
+      height: 115px;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: $green;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    &::before {
+      left: -18px;
+      width: 298px;
+      height: 100%;
+      background-color: rgba($black, 0.1);
+
+      @include max-w ($md) {
+        width: 166px;
+      }
+
+      @include max-w ($xs) {
+        width: 144px;
+      }
+    }
+
+    &::after {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: $white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+
+      &::before,
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+    object-fit: contain;
+    padding-top: 10px;
+    height: 215px;
+    width: 100%;
+
+    @include max-w ($md) {
+      height: 126px;
+    }
+
+    @include max-w ($xs) {
+      height: 115px;
+    }
+  }
+
+  &__descr {
+    font-size: 14px;
+    font-weight: 600;
+    color: $black;
+    @include clamp(3);
+    margin-bottom: 40px;
+
+    @include max-w ($md) {
+      margin-bottom: 70px;
+      @include clamp(3);
+    }
+  }
+
+  &__price {
+    position: absolute;
+    left: 20px;
+    bottom: 12px;
+  }
+}
+
+.btn-chosen {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 15px;
+  right: 10px;
+  background-color: transparent;
+  outline: transparent;
+  border-radius: 3px;
+
+  @include max-w($md) {
+    width: 44px;
+    height: 44px;
+    top: 5px;
+    right: 0;
+  }
+
+  svg {
+    width: 32px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: $silver;
+
+    @include max-w($md) {
+      width: 24px;
+      height: 21px;
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 4px $green-200;
+  }
+
+  &:hover {
+    svg {
+      fill: $yellow;
+      transition: fill 0.5s;
+    }
+  }
+
+  &:active {
+    svg {
+      fill: rgba($yellow, 0.5);
+    }
+  }
+}
+
+.btn-basket {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  right: 16px;
+  bottom: 18px;
+  background-color: $green;
+  border-radius: 3px;
+  outline: transparent;
+
+  @include max-w($md) {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  &::after {
+    @extend %area;
+    width: 45px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  svg {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.6s;
+  }
+}
+
+.little-card {
+  border: 1px solid rgba($black, 0.2);
+  border-radius: 6px;
+  padding: 12px;
+  background-color: $white;
+  transition: border 0.3s;
+  width: 300px;
+  position: relative;
+
+  &:hover {
+    border: 1px solid $green;
+  }
+
+  &__link {
+    display: flex;
+  }
+
+  &__img {
+    max-width: 98px;
+    height: 98px;
+    object-fit: cover;
+  }
+
+  &__info {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__descr {
+    font-size: 14px;
+    font-weight: 600;
+    color: $black;
+    margin-bottom: auto;
+    width: 165px;
+    @include clamp(3);
+  }
+
+  &__buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__price {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__price-num {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    margin-right: 13px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--old {
+      font-size: 12px;
+      position: relative;
+      color: $silver;
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background-color: $silver;
+        bottom: 0;
+        left: 0;
+        transform: rotate(-12deg) translateY(-7px) translateX(2px);
+      }
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+  }
+
+  &__rate {
+    color: $black-500;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  &__star {
+    pointer-events: none;
+
+    svg {
+      fill: $yellow;
+    }
+  }
+}
+
+.product-status {
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: $green;
+  margin-bottom: 5px;
+
+  &--end {
+    color: $red;
+  }
+
+  &--none {
+    color: $silver;
+  }
+}
+
+.news-card {
+  display: block;
+  max-width: 410px;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 3px 3px rgba($black, 0.25);
+  position: relative;
+
+  &:hover .news-card__title {
+    color: $green;
+  }
+
+  &__link {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  &__date {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    width: 65px;
+    height: 75px;
+    border-radius: 0 0 6px 6px;
+    text-transform: uppercase;
+    color: $black;
+    overflow: hidden;
+  }
+
+  &__mounth {
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.1em;
+  }
+
+  &__day {
+    font-family: 'Ruda', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  &__img {
+    display: block;
+    border-radius: 6px 6px 0 0;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+
+    @include max-w ($sm) {
+      height: 200px;
+    }
+  }
+
+  &__title {
+    padding: 18px;
+    color: $black;
+    line-height: 1.5;
+    font-size: 16px;
+    font-weight: 600;
+    @include clamp(4);
+    letter-spacing: 0;
+    transition: color 0.3s;
+
+    @include max-w ($sm) {
+      font-size: 14px;
+      line-height: 1.4;
+      padding: 15px;
+    }
+  }
+}
+
+.price {
+  display: block;
+  line-height: 1;
+  margin-bottom: 3px;
+  position: relative;
+  @include clamp;
+
+  &--old {
+    color: $silver;
+  }
+
+  &--old::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: $silver;
+    bottom: 0;
+    left: 0;
+    transform: rotate(-12deg) translateY(-7px) translateX(2px);
+  }
+}
+
+.price-valute {
+  font-size: 14px;
+}
+
+.badges {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  width: 70px;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: $white;
+
+  &__item {
+    padding: 3px 6px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 6px;
+
+    &--new {
+      background-color: $green;
+    }
+
+    &--discount {
+      background-color: $red;
+    }
+
+    &--heat {
+      background-color: $orange;
+    }
+  }
+}
+
+.pay {
+  display: flex;
+  margin-left: 20px;
+
+  @include max-w ($sm) {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  &__item {
+    width: 93px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--mc {
+      width: 49px;
+    }
+  }
+}
+
 .social {
   display: flex;
+
+  &--footer {
+    @include max-w ($sm) {
+      justify-content: center;
+      margin-right: 15px;
+    }
+  }
 
   &__item {
     margin-right: 12px;
@@ -292,381 +990,173 @@ body {
   }
 }
 
-.product-card {
-  border: 1px solid rgba($black, 0.2);
-  border-radius: 6px;
-  max-width: 300px;
-  width: 100%;
-  padding: 56px 18px 18px 18px;
-  position: relative;
-  transition: border 0.3s;
-  display: flex;
-  flex-direction: column;
 
-  &:hover {
-    border: 1px solid $green;
+.address {
+
+  &--footer {
+    @include max-w ($xl) {
+      margin-bottom: 55px;
+      margin-left: 24px;
+    }
+  }
+
+  &--mobile {
+    color: $black-800;
+    width: 270px;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-bottom: 48px;
+    width: 100%;
+    position: relative;
+    padding-left: 15px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      background-color: rgba($silver, 0.3);
+      left: 0;
+      bottom: -24px;
+    }
+
+    svg {
+      fill: $black-800;
+    }
+
+    .address__link {
+      padding: 15px 40px;
+      margin-bottom: 0;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        left: 0;
+      }
+    }
+
+    .address__text {
+      position: relative;
+      padding-left: 40px;
+
+      svg {
+        width: 24px;
+        height: 32px;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+
+  &__info {
+    letter-spacing: 0;
+    margin-bottom: 18px;
   }
 
   &__link {
     display: block;
+    margin-bottom: 18px;
+    @include clamp(2);
     position: relative;
-    margin-bottom: 10px;
-
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: $green;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      opacity: 0;
-      transition: opacity 0.6s;
-    }
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      opacity: 0;
-      transition: opacity 0.6s;
-    }
-
-    &::before {
-      left: -18px;
-      width: 298px;
-      height: 100%;
-      background-color: rgba($black, 0.1);
-    }
-
-    &::after {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background-color: $white;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    &:hover {
-      svg {
-        opacity: 1;
-      }
-    }
-
-    &:hover::before,
-    &:hover::after {
-      opacity: 1;
-    }
-  }
-
-  &__img {
-    object-fit: cover;
-    height: 225px;
-  }
-
-  &__descr {
-    font-weight: 600;
-    color: $black;
-    font-size: 14px;
-    height: 63px;
-    @include clamp(3);
-  }
-
-  &__price {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-.btn-chosen {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  top: 17px;
-  right: 12px;
-  background-color: transparent;
-  outline: transparent;
-  border-radius: 3px;
-
-  svg {
-    width: 32px;
-    height: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    fill: $silver;
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 4px $green-200;
-  }
-
-  &:hover {
-    svg {
-      fill: $yellow;
-      transition: fill 0.5s;
-    }
-  }
-
-  &:active {
-    svg {
-      fill: rgba($yellow, 0.5);
-    }
-  }
-}
-
-.btn-basket {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  right: 18px;
-  bottom: 18px;
-  background-color: $green;
-  border-radius: 3px;
-  outline: transparent;
-
-  svg {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.6s;
-  }
-}
-
-.little-card {
-  border: 1px solid rgba($black, 0.2);
-  border-radius: 6px;
-  padding: 12px;
-  background-color: $white;
-  transition: border 0.3s;
-  width: 300px;
-  position: relative;
-
-  &:hover {
-    border: 1px solid $green;
-  }
-
-  &__link {
-    display: flex;
-  }
-
-  &__img {
-    max-width: 98px;
-    height: 98px;
-    object-fit: cover;
-  }
-
-  &__info {
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  &__descr {
-    font-size: 14px;
-    font-weight: 600;
-    color: $black;
-    margin-bottom: auto;
-    width: 165px;
-    @include clamp(3);
-  }
-
-  &__price {
-    display: flex;
-  }
-
-  &__rating {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    bottom: 12px;
-    right: 8px;
-  }
-
-  &__rate {
-    color: $black-500;
-    line-height: 1;
-    font-weight: 700;
-  }
-
-  &__star {
-    pointer-events: none;
-
-    svg {
-      fill: $yellow;
-    }
-  }
-
-  .price {
-    margin-right: 13px;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1;
-    font-family: sans-serif;
-
-    &--valute {
-      font-size: 14px;
-    }
-
-    &--old {
-      font-size: 12px;
-    }
-  }
-}
-
-.product-status {
-  font-size: 10px;
-  line-height: 1;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: $green;
-  margin-bottom: 5px;
-
-  &--end {
-    color: $red;
-  }
-
-  &--none {
-    color: $silver;
-  }
-}
-
-.news-card {
-  max-width: 410px;
-  width: 100%;
-  border-radius: 6px;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 3px 3px rgba($black, 0.25);
-
-  &:hover {
-    p {
-      color: $green;
-      transition: color 0.3s;
-    }
-  }
-
-  &__date {
-    position: absolute;
-    top: 0;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: $white;
-    width: 65px;
-    height: 75px;
-    border-radius: 0 0 6px 6px;
-    text-transform: uppercase;
-    color: $black;
-    overflow: hidden;
-  }
-
-  &__mounth {
-    font-size: 10px;
-    font-weight: 700;
-    margin-bottom: 4px;
-    letter-spacing: 0.1em;
-  }
-
-  &__day {
-    font-family: 'Ruda', sans-serif;
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 1;
-  }
-
-  &__img {
-    object-fit: cover;
-    border-radius: 6px 6px 0 0;
-    width: 100%;
-    height: 240px;
   }
 
   &__text {
-    padding: 18px;
-    color: $black;
-    line-height: 1.5;
-    font-size: 16px;
-    font-weight: 600;
-    @include clamp(3);
+    width: 230px;
+    @include clamp(2);
   }
 }
 
-.price {
-  margin-top: auto;
-  line-height: 1;
-  margin-bottom: 3px;
-  position: relative;
-  @include clamp;
-
-  &--old {
-    color: $silver;
-  }
-
-  &--old::before {
-    content: '';
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    background-color: $silver;
-    bottom: 0;
-    left: 0;
-    transform: rotate(-12deg) translateY(-7px) translateX(2px);
-  }
-}
-
-.badges {
+.mobile-menu {
+  background-color: $white;
   position: absolute;
-  top: 10px;
-  left: 12px;
-  width: 70px;
-  font-weight: 700;
-  font-size: 10px;
-  line-height: 1;
-  text-transform: uppercase;
+  left: 0;
+  top: 0;
+  width: 80%;
+  z-index: 20;
+  transform: translateX(-200%);
+  transition: transform 0.5s;
+  padding: 24px 0;
+  font-size: 18px;
+  line-height: 1.2;
+  display: none;
+
+  @include max-w($lg) {
+    display: block;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-left: 15px;
+  }
+
+  &__box {
+    position: relative;
+    background-color: $green;
+    padding: 15px 0;
+    padding-left: 50px;
+
+    svg {
+      position: absolute;
+      width: 25px;
+      height: 32px;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__bottom {
+    padding-left: 15px;
+  }
+
+  &__link {
+    padding: 15px 0 15px 50px;
+    display: block;
+    border-bottom: 1px solid rgba($silver, 0.3);
+
+    svg {
+      position: absolute;
+      width: 24px;
+      height: 20px;
+      fill: $black-800;
+      left: 15px;
+    }
+  }
+
+  &--active {
+    transform: translateX(0);
+  }
+}
+
+.entry__link {
   color: $white;
+  padding-right: 20px;
+  font-size: 18px;
+  line-height: 1;
 
-  &__item {
-    padding: 3px 6px;
-    border-radius: 6px;
-    display: inline-block;
-    margin-bottom: 6px;
+  &:last-child {
+    padding-right: 0;
+    position: relative;
 
-    &--new {
-      background-color: $green;
-    }
-
-    &--discount {
-      background-color: $red;
-    }
-
-    &--heat {
-      background-color: $orange;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 20px;
+      background-color: $white;
+      left: -9px;
     }
   }
 }
 
-.pay {
-  display: flex;
-  margin-right: -20px;
+.tel {
+  position: relative;
 
-  &__item {
-    width: 93px;
-    height: 30px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+  &::after {
+    @extend %area;
   }
 }
