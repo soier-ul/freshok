@@ -17,141 +17,139 @@
   <div class="wrapper">
 
     <header class="header">
-      <div class="mobile-menu">
-        <div class="mobile-menu__top">
-          <a class="logo logo--mobile" href="#">
-            <img class="logo__img" src="images/logo-green.svg" alt="логотип" width="200">
-          </a>
+      <nav class="header__nav">
 
-          <button class="burger burger--mobile">
-            <span class="burger__row">
-            </span>
-          </button>
-        </div>
-
-        <div class="mobile-menu__box">
-          <svg>
-            <use xlink:href="images/sprite.svg#icon-user"></use>
-          </svg>
-          <a class="entry__link" href="#">Вход</a>
-          <a class="entry__link" href="#">Регистрация</a>
-        </div>
-
-        <a class="mobile-menu__link" href="#">
-          <svg>
-            <use xlink:href="images/sprite.svg#icon-select-nav"></use>
-          </svg>
-          Каталог товаров
-        </a>
-
-        <address class="address address--mobile">
-          <div class="address__info">
-            <a class="address__link link-animation" href="tel:+7907288365">
-              <svg>
-                <use xlink:href="images/sprite.svg#icon-tel"></use>
-              </svg>
-              +7 907 288 365
+        <div class="mobile-menu">
+          <div class="mobile-menu__top">
+            <a class="logo logo--menu" href="#">
+              <img class="logo__img" src="images/logo-green.svg" alt="логотип" width="200">
             </a>
-            <span class="address__text">
-              <svg>
-                <use xlink:href="images/sprite.svg#icon-marker"></use>
-              </svg>
-              Санкт-Петербург, ул. Ленина, 1
-            </span>
+
+            <button class="burger burger--mobile" type="button">
+              <span class="burger__row">
+              </span>
+              <span class="sr-only">Закрыть меню</span>
+            </button>
           </div>
 
-          <ul class="social">
-            <li class="social__item">
-              <a class="social__link" href="#" target="_blank">
-                <svg>
-                  <use xlink:href="images/sprite.svg#icon-facebook"></use>
-                </svg>
-                <span class="sr-only">ссылка на фейсбук</span>
-              </a>
-            </li>
+          <div class="mobile-menu__box">
+            <a class="entry__link" href="#">Вход</a>
+            <a class="entry__link" href="#">Регистрация</a>
+          </div>
 
-            <li class="social__item">
-              <a class="social__link" href="#" target="_blank">
-                <svg>
-                  <use xlink:href="images/sprite.svg#icon-youtube"></use>
-                </svg>
-                <span class="sr-only">ссылка на ютуб</span>
-              </a>
-            </li>
+          <a class="mobile-menu__link" href="#">
+            <!-- вставил svg, потому что картинка сама другого цвета, что б еще не скачивать -->
+            <svg>
+              <use xlink:href="images/sprite.svg#icon-select-nav"></use>
+            </svg>
+            Каталог товаров
+          </a>
 
-            <li class="social__item">
-              <a class="social__link" href="#" target="_blank">
+          <address class="address address--mobile">
+            <div class="address__info">
+              <a class="address__link link-animation" href="tel:+7907288365">
                 <svg>
-                  <use xlink:href="images/sprite.svg#icon-telegram"></use>
+                  <use xlink:href="images/sprite.svg#icon-tel"></use>
                 </svg>
-                <span class="sr-only">ссылка на телеграм</span>
+                +7 907 288 365
               </a>
-            </li>
+              <span class="address__text">
+                Санкт-Петербург, ул. Ленина, 1
+              </span>
+            </div>
 
-            <li class="social__item">
-              <a class="social__link" href="#" target="_blank">
-                <svg>
-                  <use xlink:href="images/sprite.svg#icon-instagram"></use>
-                </svg>
-                <span class="sr-only">ссылка на инстаграм</span>
-              </a>
-            </li>
-          </ul>
-        </address>
+            <ul class="social">
+              <li class="social__item">
+                <a class="social__link" href="#" target="_blank">
+                  <svg>
+                    <use xlink:href="images/sprite.svg#icon-facebook"></use>
+                  </svg>
+                  <span class="sr-only">ссылка на фейсбук</span>
+                </a>
+              </li>
 
-        <div class="mobile-menu__bottom">
-          <ul class="menu menu--mobile">
-            <li class="menu__item">
-              <a class="menu__link link-animation" href="#">
-                Доставка
-              </a>
-            </li>
-            <li class="menu__item">
-              <a class="menu__link link-animation" href="#">
-                О нас
-              </a>
-            </li>
-            <li class="menu__item">
-              <a class="menu__link link-animation" href="#">
-                Новости
-              </a>
-            </li>
-            <li class="menu__item">
-              <a class="menu__link link-animation" href="#">
-                Контакты
-              </a>
-            </li>
-            <li class="menu__item">
-              <a class="menu__link link-animation" href="#">
-                Акции
-              </a>
-            </li>
-            <li class="menu__item">
-              <a class="menu__link link-animation" href="#">
-                Вакансии
-              </a>
-            </li>
-            <li class="menu__item">
-              <a class="menu__link link-animation" href="#">
-                Отзывы
-              </a>
-            </li>
-            <li class="menu__item">
-              <a class="menu__link link-animation" href="#">
-                Публичная оферта
-              </a>
-            </li>
-          </ul>
+              <li class="social__item">
+                <a class="social__link" href="#" target="_blank">
+                  <svg>
+                    <use xlink:href="images/sprite.svg#icon-youtube"></use>
+                  </svg>
+                  <span class="sr-only">ссылка на ютуб</span>
+                </a>
+              </li>
+
+              <li class="social__item">
+                <a class="social__link" href="#" target="_blank">
+                  <svg>
+                    <use xlink:href="images/sprite.svg#icon-telegram"></use>
+                  </svg>
+                  <span class="sr-only">ссылка на телеграм</span>
+                </a>
+              </li>
+
+              <li class="social__item">
+                <a class="social__link" href="#" target="_blank">
+                  <svg>
+                    <use xlink:href="images/sprite.svg#icon-instagram"></use>
+                  </svg>
+                  <span class="sr-only">ссылка на инстаграм</span>
+                </a>
+              </li>
+            </ul>
+          </address>
+
+          <div class="mobile-menu__bottom">
+            <ul class="menu menu--mobile">
+              <li class="menu__item">
+                <a class="menu__link link-animation" href="#">
+                  Доставка
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link link-animation" href="#">
+                  О нас
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link link-animation" href="#">
+                  Новости
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link link-animation" href="#">
+                  Контакты
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link link-animation" href="#">
+                  Акции
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link link-animation" href="#">
+                  Вакансии
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link link-animation" href="#">
+                  Отзывы
+                </a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link link-animation" href="#">
+                  Публичная оферта
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <nav class="header__nav">
         <div class="header__top">
           <div class="container">
             <div class="header__top-inner">
-              <button class="burger">
+              <button class="burger" type="button">
                 <span class="burger__row">
                 </span>
+                <span class="sr-only">Открыть меню</span>
               </button>
 
               <address class="header__address">
@@ -193,12 +191,14 @@
         <div class="header__bottom">
           <div class="container">
             <div class="header__bottom-inner">
-              <a class="logo" href="#">
-                <img class="logo__img" src="images/logo.svg" alt="логотип" width="200">
-              </a>
 
-              <a class="logo-short" href="#">
-                <img class="logo-short__img" src="images/logo-short.svg" alt="логотип" width="37">
+              <a class="logo" href="#">
+                <!-- не знаю, правильно или нет -->
+                <picture>
+                  <source srcset="images/logo-short.svg" media="(max-width: 768px)" width="38">
+                  <source srcset="images/logo.svg">
+                  <img srcset="images/logo.svg" alt="логотип">
+                </picture>
               </a>
 
               <div class="header__catalog">
@@ -271,11 +271,10 @@
               </div>
 
               <form class="header__form">
-                <!--А я не понял зачем вводить что то в label...в макете же ничего нет, можно тогда скрытым сделать? я че то не догоняю((   -->
-                <label class="sr-only" for="search">Введите название товара</label>
+                <label class="sr-only" for="search">Введите что-то в поиск</label>
                 <input class="header__form-field" type="search" id="search" name="search"
                   placeholder="Найти в магазине ..." required>
-                <button class="input-button btn-animation" type="submit">
+                <button class="input-button input-button--mobile btn-animation" type="submit">
                   поиск
                 </button>
               </form>
@@ -286,17 +285,19 @@
                     <svg>
                       <use xlink:href="images/sprite.svg#icon-search"></use>
                     </svg>
-                    <span class="sr-only"> открыть профиль</span>
+                    <span class="sr-only"> открыть поиск</span>
                   </button>
                 </li>
+
                 <li class="user-nav__item user-nav__item--user">
                   <button class="user-nav__link" type="button">
                     <svg>
                       <use xlink:href="images/sprite.svg#icon-user"></use>
                     </svg>
-                    <span class="sr-only"> открыть профиль</span>
+                    <span class="sr-only"> открыть меню</span>
                   </button>
                 </li>
+
                 <li class="user-nav__item user-nav__item--chosen">
                   <button class="user-nav__link" type="button">
                     <svg>
@@ -306,6 +307,7 @@
                     <span class="user-nav__num">12</span>
                   </button>
                 </li>
+
                 <li class="user-nav__item">
                   <button class="user-nav__link" type="button">
                     <svg>
@@ -319,25 +321,19 @@
             </div>
           </div>
         </div>
-        <form class="form-mobile">
-          <label class="sr-only" for="search">Введите название товара</label>
-          <input class="form-mobile__field" type="search" id="search" name="search" placeholder="Я ищу..." required>
-          <button class="form-mobile__btn btn-animation" type="submit">
-            поиск
-          </button>
-        </form>
+
       </nav>
     </header>
 
     <main class="main">
-      <h1 class="sr-only"></h1>
+      <h1 class="sr-only">Магазин ФрешОк</h1>
 
       <setion class="hero">
-        <h2 class="sr-only"></h2>
+        <h2 class="sr-only">Акции</h2>
         <ul class="hero__inner">
 
-          <li class="hero__slide" style="background-image: url(images/slider/carrot.jpg);">
-            <div class="container">
+          <li>
+            <div class="hero__slide" style="background-image: url(images/slider/carrot.jpg);">
               <div class="hero__item">
                 <h3 class="hero__title">
                   свежачок вам в хату
@@ -350,15 +346,15 @@
                   <p>Только с 7 по 13 июля скидка на сезонные фрукты и овощи до 50%. Торопитесь!</p>
                 </div>
 
-                <a class="btn btn-animation" href="#">
+                <a class="btn btn--slide btn-animation" href="#">
                   Купить сейчас
                 </a>
               </div>
             </div>
           </li>
 
-          <li class="hero__slide" style="background-image: url(images/slider/tomato.jpg);">
-            <div class="container">
+          <li>
+            <div class="hero__slide" style="background-image: url(images/slider/tomato.jpg);">
               <div class="hero__item">
                 <h3 class="hero__title">
                   накрути себе томатов
@@ -372,15 +368,15 @@
                   <p>Только с 12 по 15 июля скидка на домашние помидорчики</p>
                 </div>
 
-                <a class="btn btn-animation" href="#">
+                <a class="btn btn--slide btn-animation" href="#">
                   Купить сейчас
                 </a>
               </div>
             </div>
           </li>
 
-          <li class="hero__slide" style="background-image: url(images/slider/greens.jpg);">
-            <div class="container">
+          <li>
+            <div class="hero__slide" style="background-image: url(images/slider/greens.jpg);">
               <div class="hero__item">
                 <h3 class="hero__title">
                   Пусть остальные
@@ -390,7 +386,7 @@
                   </span>
                 </h3>
 
-                <a class="btn btn-animation" href="#">
+                <a class="btn btn--slide btn-animation" href="#">
                   Купить сейчас
                 </a>
               </div>
@@ -537,16 +533,9 @@
 
                 <div class="product-card__price">
                   <span class="price">
-                    199 <span class="price--valute">₽</span>
+                    199 <span>₽</span>
                   </span>
                 </div>
-
-                <button class="btn-basket btn-animation" type="button">
-                  <svg>
-                    <use xlink:href="images/sprite.svg#icon-cart"></use>
-                  </svg>
-                  <span class="sr-only">В корзину</span>
-                </button>
 
                 <button class="btn-basket btn-animation" type="button">
                   <svg>
@@ -586,16 +575,9 @@
 
                 <div class="product-card__price">
                   <span class="price">
-                    1019 <span class="price--valute">₽</span>
+                    1019 <span>₽</span>
                   </span>
                 </div>
-
-                <button class="btn-basket btn-animation" type="button">
-                  <svg>
-                    <use xlink:href="images/sprite.svg#icon-cart"></use>
-                  </svg>
-                  <span class="sr-only">В корзину</span>
-                </button>
 
                 <button class="btn-basket btn-animation" type="button">
                   <svg>
@@ -629,16 +611,9 @@
 
                 <div class="product-card__price">
                   <span class="price">
-                    600 <span class="price--valute">₽</span>
+                    600 <span>₽</span>
                   </span>
                 </div>
-
-                <button class="btn-basket btn-animation" type="button">
-                  <svg>
-                    <use xlink:href="images/sprite.svg#icon-cart"></use>
-                  </svg>
-                  <span class="sr-only">В корзину</span>
-                </button>
 
                 <button class="btn-basket btn-animation" type="button">
                   <svg>
@@ -678,16 +653,9 @@
 
                 <div class="product-card__price">
                   <span class="price">
-                    49 <span class="price--valute">₽</span>
+                    49 <span>₽</span>
                   </span>
                 </div>
-
-                <button class="btn-basket btn-animation" type="button">
-                  <svg>
-                    <use xlink:href="images/sprite.svg#icon-cart"></use>
-                  </svg>
-                  <span class="sr-only">В корзину</span>
-                </button>
 
                 <button class="btn-basket btn-animation" type="button">
                   <svg>
@@ -727,19 +695,12 @@
 
                 <div class="product-card__price">
                   <span class="price price--old">
-                    299 <span class="price--valute">₽</span>
+                    299 <span>₽</span>
                   </span>
                   <span class="price">
-                    199 <span class="price--valute">₽</span>
+                    199 <span>₽</span>
                   </span>
                 </div>
-
-                <button class="btn-basket btn-animation" type="button">
-                  <svg>
-                    <use xlink:href="images/sprite.svg#icon-cart"></use>
-                  </svg>
-                  <span class="sr-only">В корзину</span>
-                </button>
 
                 <button class="btn-basket btn-animation" type="button">
                   <svg>
@@ -779,16 +740,9 @@
 
                 <div class="product-card__price">
                   <span class="price">
-                    877 <span class="price--valute">₽</span>
+                    877 <span>₽</span>
                   </span>
                 </div>
-
-                <button class="btn-basket btn-animation" type="button">
-                  <svg>
-                    <use xlink:href="images/sprite.svg#icon-cart"></use>
-                  </svg>
-                  <span class="sr-only">В корзину</span>
-                </button>
 
                 <button class="btn-basket btn-animation" type="button">
                   <svg>
@@ -830,16 +784,9 @@
 
                 <div class="product-card__price">
                   <span class="price">
-                    349 <span class="price--valute">₽</span>
+                    349 <span>₽</span>
                   </span>
                 </div>
-
-                <button class="btn-basket btn-animation" type="button">
-                  <svg>
-                    <use xlink:href="images/sprite.svg#icon-cart"></use>
-                  </svg>
-                  <span class="sr-only">В корзину</span>
-                </button>
 
                 <button class="btn-basket btn-animation" type="button">
                   <svg>

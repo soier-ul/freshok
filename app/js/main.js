@@ -18,20 +18,19 @@ $(function () {
     arrows: false,
     slidesToShow: 6,
     slidesToScroll: 1,
-    responsive: [
+    responsive: [{
+        breakpoint: 993,
+        settings: {
+          slidesToShow: 4,
+        }
+      },
       {
-      breakpoint: 993,
-      settings: {
-        slidesToShow: 4,
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+        }
       }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-      }
-    }
-  ]
+    ]
   });
 
   $('.header__catalog').on('click', function () {
@@ -39,12 +38,13 @@ $(function () {
   });
 
   $('.search-btn').on('click', function () {
-    $('.form-mobile').toggleClass('form-mobile--active');
+    $('.header__form').toggleClass('header__form--active');
+    $('.mobile-menu').removeClass('mobile-menu--active');
   });
 
   $('.burger').on('click', function () {
     $('.mobile-menu').toggleClass('mobile-menu--active');
-    $('.form-mobile').removeClass('form-mobile--active');
+    $('.header__form').removeClass('header__form--active');
   });
 
   $(".little-card__star").rateYo({
@@ -66,5 +66,24 @@ $(function () {
 
   var mixer1 = mixitup(containerEl1, config);
   var mixer2 = mixitup(containerEl2, config);
+
+
+
+  let lastScroll = 0;
+  const defaultOffset = 360;
+  const header = document.querySelector('.header');
+
+  const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
+  const containHide = () => header.classList.contains('hide');
+
+  window.addEventListener('scroll', () => {
+    if (scrollPosition() > lastScroll && !containHide() && scrollPosition() > defaultOffset) {
+      header.classList.add('hide');
+    } else if (scrollPosition() < lastScroll && containHide()) {
+      header.classList.remove('hide');
+    }
+
+    lastScroll = scrollPosition();
+  })
 
 });

@@ -31,13 +31,15 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+
 }
 
 .main {
   flex: 1 0 auto;
+  padding-top: 160px;
 
   @include max-w ($md) {
-    margin-top: -50px;
+    padding-top: 110px;
   }
 }
 
@@ -69,6 +71,7 @@ body {
   }
 
   &--mobile {
+    margin-right: 10px;
 
     .burger__row {
       background-color: $black-800;
@@ -120,15 +123,17 @@ body {
 
 .logo {
   display: inline-block;
+  width: 200px;
 
   @include max-w ($md) {
-    display: none;
+    height: 60px;
+    width: 120px;
+    padding-top: 9px;
   }
 
-  &--mobile {
-    @include max-w ($md) {
-      display: block;
-    }
+  &--menu {
+    width: 200px;
+    padding-top: 0;
   }
 
   &--footer {
@@ -143,22 +148,7 @@ body {
   &__img {
     object-fit: contain;
     object-position: left;
-    height: 60px;
     width: 200px;
-  }
-}
-
-.logo-short {
-  height: 62px;
-  width: 100px;
-  display: none;
-
-  @include max-w ($md) {
-    display: block;
-  }
-
-  &__img {
-    margin-top: 10px
   }
 }
 
@@ -212,6 +202,12 @@ body {
   border-radius: 6px;
   transition: box-shadow 0.4s, background-color 0.4s, color 0.4s;
   display: inline-block;
+
+  &--slide {
+    @include max-w ($md) {
+      font-size: 14px;
+    }
+  }
 
   &--white {
     background-color: transparent;
@@ -288,66 +284,6 @@ body {
   }
 }
 
-.form-mobile {
-  position: relative;
-  width: 100%;
-  border: 1px solid $black-800;
-  transition: transform 0.5s;
-  z-index: 10;
-  display: none;
-  transform: translateX(200%);
-
-  &--active {
-    transform: translate(0, -2px);
-  }
-
-  @include max-w ($md) {
-    display: block;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    background-image: url(../images/icons/icon-search.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 20px;
-    height: 20px;
-    top: 14px;
-    left: 13px;
-    pointer-events: none;
-  }
-
-  &__field {
-    width: 100%;
-    padding: 14px 120px 14px 45px;
-    outline: transparent;
-    transition: box-shadow 0.3s;
-
-    &:focus {
-      box-shadow: 0 0 0 4px $green-200;
-    }
-
-    &::placeholder {
-      color: $black-800;
-      letter-spacing: 0.03em;
-    }
-  }
-
-  &__btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: $white;
-    background-color: $black-800;
-    padding: 14px 25px;
-    letter-spacing: 0.03em;
-  }
-}
-
 .input-button {
   position: absolute;
   right: 0;
@@ -363,6 +299,14 @@ body {
 
   @include max-w($xl) {
     padding: 15px 32px;
+  }
+
+  @include max-w($md) {
+
+    &--mobile {
+      border-radius: 0;
+      padding: 14px 25px;
+    }
   }
 
   &:hover {
@@ -381,14 +325,14 @@ body {
   }
 
   &__item {
-    margin-right: 24px;
+    margin-left: 24px;
 
     @include max-w ($md) {
       margin-bottom: 15px;
     }
 
-    &:last-child {
-      margin-right: 0;
+    &:first-child {
+      margin-left: 0;
     }
   }
 
@@ -921,8 +865,8 @@ body {
   margin-left: 20px;
 
   @include max-w ($sm) {
-    margin-top: 25px;
     margin-bottom: 25px;
+    margin-left: 0;
   }
 
   &__item {
@@ -968,6 +912,13 @@ body {
     border-radius: 3px;
     outline: transparent;
     transition: opacity 0.4s, box-shadow 0.4s;
+    position: relative;
+
+    &::after {
+      @extend %area;
+      left: -6px;
+      top: -7px;
+    }
 
     svg {
       width: 32px;
@@ -989,7 +940,6 @@ body {
     }
   }
 }
-
 
 .address {
 
@@ -1040,11 +990,17 @@ body {
       position: relative;
       padding-left: 40px;
 
-      svg {
+      &::before {
+        position: absolute;
+        content: '';
+        background-image: url(../images/icons/icon-marker.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
         width: 24px;
         height: 32px;
-        position: absolute;
         left: 0;
+        top: 2px;
       }
     }
   }
@@ -1059,6 +1015,10 @@ body {
     margin-bottom: 18px;
     @include clamp(2);
     position: relative;
+
+    &::after {
+      @extend %area;
+    }
   }
 
   &__text {
@@ -1068,17 +1028,20 @@ body {
 }
 
 .mobile-menu {
-  background-color: $white;
   position: absolute;
+  z-index: 20;
   left: 0;
   top: 0;
-  width: 80%;
-  z-index: 20;
-  transform: translateX(-200%);
-  transition: transform 0.5s;
+  max-width: 300px;
+  width: 100%;
+  height: 100vh;
   padding: 24px 0;
   font-size: 18px;
   line-height: 1.2;
+  transform: translateX(-200%);
+  transition: transform 0.5s;
+  overflow-y: scroll;
+  background-color: $white;
   display: none;
 
   @include max-w($lg) {
@@ -1096,17 +1059,22 @@ body {
   &__box {
     position: relative;
     background-color: $green;
-    padding: 15px 0;
+    padding: 13px 0;
     padding-left: 50px;
 
-    svg {
+    &::before {
       position: absolute;
+      content: '';
+      background-image: url(../images/icons/icon-user.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      top: 9px;
+      left: 11px;
       width: 25px;
       height: 32px;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
     }
+
   }
 
   &__bottom {
@@ -1117,6 +1085,7 @@ body {
     padding: 15px 0 15px 50px;
     display: block;
     border-bottom: 1px solid rgba($silver, 0.3);
+    position: relative;
 
     svg {
       position: absolute;
