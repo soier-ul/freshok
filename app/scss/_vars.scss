@@ -41,6 +41,14 @@ $yellow: #ffb800;
   height: 45px;
 }
 
+%cb {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  position: absolute;
+}
+
 $xl: 1400px;
 $lg: 992px;
 $md: 768px;

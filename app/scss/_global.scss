@@ -123,7 +123,6 @@ body {
 
 .logo {
   display: inline-block;
-  width: 200px;
 
   @include max-w ($md) {
     height: 60px;
@@ -138,6 +137,7 @@ body {
 
   &--footer {
     display: block;
+    width: 200px;
 
     @include max-w ($xl) {
       display: flex;
@@ -197,7 +197,7 @@ body {
   font-size: 18px;
   color: $white;
   letter-spacing: 0.03em;
-  padding: 12px 24px;
+  padding: 11px 24px;
   background-color: $green;
   border-radius: 6px;
   transition: box-shadow 0.4s, background-color 0.4s, color 0.4s;
@@ -401,9 +401,120 @@ body {
   padding: 56px 18px 18px;
   transition: border 0.3s;
   position: relative;
+  transition: all 0.4s;
+
+  &.product-card--row {
+    transition: all 0.4s;
+    max-width: 466px;
+    padding: 14px 18px 9px 12px;
+
+    @include max-w ($md) {
+      max-width: 340px;
+    }
+
+    @include max-w ($sm) {
+      max-width: 290px;
+    }
+
+    .product-card__wrapper-content {
+      display: flex;
+    }
+
+    .product-card__wrapper-info {
+      width: 200px;
+      margin-right: 20px;
+
+      @include max-w ($md) {
+        width: 160px;
+      }
+    }
+
+    .product-card__wrapper-status {
+      margin-bottom: 16px;
+
+      @include max-w ($sm) {
+        margin-bottom: 5px;
+      }
+    }
+
+    .product-card__link {
+      width: 200px;
+      height: 140px;
+      margin-right: 10px;
+
+      @include max-w ($md) {
+        width: 100px;
+      }
+
+      @include max-w ($md) {
+        width: 90px;
+      }
+
+      &::before {
+        width: 198px;
+        left: 0;
+
+        @include max-w ($md) {
+          width: 98px;
+        }
+
+        @include max-w ($md) {
+          width: 88px;
+        }
+      }
+    }
+
+    .product-card__img {
+      height: 140px;
+      width: 100%;
+    }
+
+    .product-card__descr {
+
+      @include max-w ($md) {
+        margin-bottom: 40px;
+      }
+    }
+
+    .product-card__price {
+      left: 223px;
+      bottom: 12px;
+
+      @include max-w ($md) {
+        left: 115px;
+      }
+
+      @include max-w ($md) {
+        left: 103px;
+      }
+    }
+
+    .btn-chosen {
+      right: 16px;
+      top: 66px;
+
+      @include max-w ($md) {
+        right: 6px;
+      }
+    }
+
+    .btn-basket {
+      bottom: 12px;
+    }
+
+    .little-card__rating {
+      margin-right: -25px;
+    }
+
+    .badges {
+      top: 6px;
+      left: 7px;
+    }
+  }
 
   @include max-w ($md) {
     max-width: 170px;
+    padding: 56px 12px 12px;
   }
 
   @include max-w ($xs) {
@@ -414,12 +525,33 @@ body {
     border: 1px solid $green;
   }
 
+  &__wrapper-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: -3px;
+
+    @include max-w ($md) {
+      margin-top: -9px;
+    }
+
+    @include max-w ($xs) {
+      margin-top: -3px;
+    }
+  }
+
   &__link {
     position: relative;
     display: block;
     margin-bottom: 10px;
     height: 225px;
     width: 100%;
+
+    &--catalog {
+      height: 215px;
+      margin-bottom: 0;
+    }
 
     @include max-w ($md) {
       height: 132px;
@@ -457,7 +589,8 @@ body {
       background-color: rgba($black, 0.1);
 
       @include max-w ($md) {
-        width: 166px;
+        width: 168px;
+        left: -12px;
       }
 
       @include max-w ($xs) {
@@ -488,11 +621,9 @@ body {
   }
 
   &__img {
-    display: block;
     object-fit: contain;
     padding-top: 10px;
     height: 215px;
-    width: 100%;
 
     @include max-w ($md) {
       height: 126px;
@@ -517,6 +648,7 @@ body {
   }
 
   &__price {
+    margin-top: 5px;
     position: absolute;
     left: 20px;
     bottom: 12px;
@@ -655,6 +787,7 @@ body {
   &__price {
     display: flex;
     align-items: flex-end;
+    margin-top: 5px;
   }
 
   &__price-num {
@@ -688,7 +821,14 @@ body {
   &__rating {
     display: flex;
     align-items: center;
-    margin-top: 3px;
+
+    &--catalog {
+      margin-right: -7px;
+
+      @include max-w ($sm) {
+        font-size: 10px;
+      }
+    }
   }
 
   &__rate {
@@ -712,7 +852,6 @@ body {
   text-transform: uppercase;
   font-weight: 600;
   color: $green;
-  margin-bottom: 5px;
 
   &--end {
     color: $red;
@@ -720,6 +859,13 @@ body {
 
   &--none {
     color: $silver;
+  }
+
+  &--catalog {
+    
+    @include max-w ($sm) {
+      font-size: 8px;
+    }
   }
 }
 
@@ -831,6 +977,7 @@ body {
 
 .badges {
   position: absolute;
+  z-index: 8;
   top: 10px;
   left: 12px;
   width: 70px;
@@ -1032,7 +1179,7 @@ body {
   z-index: 20;
   left: 0;
   top: 0;
-  max-width: 300px;
+  max-width: 320px;
   width: 100%;
   height: 100vh;
   padding: 24px 0;
@@ -1127,5 +1274,193 @@ body {
 
   &::after {
     @extend %area;
+  }
+}
+
+//
+
+.filter {
+
+  &__title {
+    font-size: 24px;
+    line-height: 1.2;
+    font-family: 'Ruda', sans-serif;
+    font-weight: 400;
+  }
+
+  &__item {
+    margin-bottom: 30px;
+    transition: margin-bottom 0.5s;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--active {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__btn {
+    padding: 18px 0;
+    text-align: left;
+    padding-left: 18px;
+    width: 300px;
+    font-family: 'Ruda', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    color: $black;
+    border: 1px solid $silver;
+    border-radius: 6px;
+    transition: border-radius 0.4s;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url(../images/icons/icon-chevron.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 11px;
+      height: 18px;
+      top: 24px;
+      right: 24px;
+      transform: rotate(90deg);
+      transition: transform 0.3s;
+    }
+  }
+
+  &__label {
+    padding-left: 35px;
+    margin-bottom: 12px;
+    display: block;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::after {
+      @extend %area;
+    }
+  }
+
+  &__input {
+    @extend %cb;
+
+    &:checked+.filter__checkbox {
+      background-image: url(../images/icons/icon-checked.svg);
+      background-repeat: no-repeat;
+      background-size: 12px;
+      background-position: center;
+      border-color: $black-500;
+    }
+
+    &:hover+.filter__checkbox {
+      border-color: $black-500;
+    }
+  }
+
+  &__checkbox {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 0;
+    background-color: $silver-100;
+    border-radius: 3px;
+    border: 1px solid $silver;
+    transition: border-color 0.3s;
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+
+  @include max-w ($md) {
+    margin-top: 25px;
+  }
+
+  &__prev {
+
+    svg {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__list {
+    display: flex;
+    margin: 0 6px;
+  }
+
+  &__item {
+    margin-right: 6px;
+    width: 48px;
+    height: 48px;
+
+    @include max-w ($md) {
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background-color: $silver-100;
+    color: $black-500;
+    font-size: 18px;
+    line-height: 1;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    outline: transparent;
+    transition: border-color 0.4s, box-shadow 0.4s;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: $black-500;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+      border: none;
+    }
+
+    &:hover {
+      border-color: $silver;
+    }
+
+    &:active {
+      box-shadow: inset 0 4px 4px rgba($black, 0.25);
+    }
+
+    &--active {
+      border: 1px solid $black-500;
+    }
+
+    &--disabled {
+
+      svg {
+        fill: $silver;
+      }
+    }
   }
 }

@@ -1,5 +1,24 @@
 $(function () {
 
+  // header hide 
+  let lastScroll = 0;
+  const defaultOffset = 360;
+  const header = document.querySelector('.header');
+
+  const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
+  const containHide = () => header.classList.contains('hide');
+
+  window.addEventListener('scroll', () => {
+    if (scrollPosition() > lastScroll && !containHide() && scrollPosition() > defaultOffset) {
+      header.classList.add('hide');
+    } else if (scrollPosition() < lastScroll && containHide()) {
+      header.classList.remove('hide');
+    }
+
+    lastScroll = scrollPosition();
+  })
+  // header hide 
+
   $('.hero__inner').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -52,9 +71,109 @@ $(function () {
     maxValue: 1,
     numStars: 1,
     rating: 1,
-    readOnly: true,
+    readOnly: true
   });
 
+  // filter
+  $('.filter__btn--category').on('click', function () {
+    $('.filter-category').toggleClass('filter-category--active');
+  });
+
+  $('.filter__btn--offers').on('click', function () {
+    $('.filter-offers').toggleClass('filter-offers--active');
+  });
+
+  $('.filter__btn--brands').on('click', function () {
+    $('.filter-brands').toggleClass('filter-brands--active');
+  });
+
+  $('.filter__btn--price').on('click', function () {
+    $('.filter-price ').toggleClass('filter-price--active');
+  });
+
+  $('.filter__item').on('click', function () {
+    $('.filter__item').toggleClass('filter__item--active');
+  });
+  // filter
+
+  $('.product-catalog__btn').on('click', function () {
+    $('.product-catalog__btn').removeClass('product-catalog__btn--active');
+    $(this).addClass('product-catalog__btn--active');
+  });
+
+  $('.button-grid').on('click', function () {
+    $('.product-card').addClass('product-card--row');
+  });
+
+  $('.button-row').on('click', function () {
+    $('.product-card').removeClass('product-card--row');
+  });
+
+  $('.product-catalog__btn--filter').on('click', function () {
+    $('.product-card').toggleClass('product-card--row');
+  });
+
+  $('.product-catalog__select').styler();
+
+  // ion range 
+  var $range = $(".filter-price__slider"),
+    $inputFrom = $(".filter-price__input--from"),
+    $inputTo = $(".filter-price__input--to"),
+    instance,
+    min = 0,
+    max = 1100,
+    from = 0,
+    to = 0;
+
+  $range.ionRangeSlider({
+    type: "double",
+    min: min,
+    max: max,
+    from: 100,
+    to: 1000,
+    onStart: updateInputs,
+    onChange: updateInputs
+  });
+  instance = $range.data("ionRangeSlider");
+
+  function updateInputs(data) {
+    from = data.from;
+    to = data.to;
+
+    $inputFrom.prop("value", from);
+    $inputTo.prop("value", to);
+  }
+
+  $inputFrom.on("input", function () {
+    var val = $(this).prop("value");
+
+    if (val < min) {
+      val = min;
+    } else if (val > to) {
+      val = to;
+    }
+
+    instance.update({
+      from: val
+    });
+  });
+
+  $inputTo.on("input", function () {
+    var val = $(this).prop("value");
+
+    if (val < from) {
+      val = from;
+    } else if (val > max) {
+      val = max;
+    }
+
+    instance.update({
+      to: val
+    });
+  });
+  // ion range 
+
+  // mixitup
   var containerEl1 = document.querySelector('[data-ref="container-1"]');
   var containerEl2 = document.querySelector('[data-ref="container-2"]');
 
@@ -66,24 +185,6 @@ $(function () {
 
   var mixer1 = mixitup(containerEl1, config);
   var mixer2 = mixitup(containerEl2, config);
-
-
-
-  let lastScroll = 0;
-  const defaultOffset = 360;
-  const header = document.querySelector('.header');
-
-  const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
-  const containHide = () => header.classList.contains('hide');
-
-  window.addEventListener('scroll', () => {
-    if (scrollPosition() > lastScroll && !containHide() && scrollPosition() > defaultOffset) {
-      header.classList.add('hide');
-    } else if (scrollPosition() < lastScroll && containHide()) {
-      header.classList.remove('hide');
-    }
-
-    lastScroll = scrollPosition();
-  })
+  // mixitup
 
 });
