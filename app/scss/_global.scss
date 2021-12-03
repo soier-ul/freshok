@@ -1226,6 +1226,8 @@ body {
 
   &__bottom {
     padding-left: 15px;
+    position: relative;
+    z-index: 21;
   }
 
   &__link {
