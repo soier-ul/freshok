@@ -1,77 +1,84 @@
 <section class="product-catalog">
   <div class="container">
-    <h2 class="product-catalog__title title">
+    <h1 class="product-catalog__title title">
       Каталог товаров
-    </h2>
+    </h1>
     <div class="product-catalog__inner">
+
       <div class="product-catalog__filters filter">
+        <button class="burger burger--mobile" type="button">
+          <span class="burger__row">
+          </span>
+          <span class="sr-only">Закрыть меню</span>
+        </button>
+
         <div class="filter-category filter-category--active filter__item">
           <button class="filter__btn filter__btn--category" type="button">
             Категории
           </button>
           <ul class="filter-category__list">
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 Овощи и фрукты
               </a>
             </li>
 
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 Бакалея
               </a>
             </li>
 
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 Молочные продукты
               </a>
             </li>
 
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 Хлеб
               </a>
             </li>
 
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 Мясо
               </a>
             </li>
 
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 Колбаса
               </a>
             </li>
 
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 Рыба
               </a>
             </li>
 
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 Алкоголь
               </a>
             </li>
 
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 что нибудь
               </a>
             </li>
 
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 еще что нибудь
               </a>
             </li>
 
             <li class="filter-category__item">
-              <a class="filter-category__link" href="#">
+              <a class="filter-category__link link-animation" href="#">
                 еще что нибудь
               </a>
             </li>
@@ -178,7 +185,7 @@
             <svg>
               <use xlink:href="images/sprite.svg#icon-filter"></use>
             </svg>
-            <span class="sr-only">Смена сетки товара</span>
+            <span class="sr-only">Открыть меню фильтров</span>
           </button>
 
           <form class="product-catalog__selects" action="#">
@@ -917,12 +924,12 @@
           </button>
 
           <div class="pagination">
-            <span class="pagination__prev pagination__link pagination__link--disabled" href="#">
+            <a class="pagination__link pagination__link--prev pagination__link--disabled" href="#">
               <svg>
                 <use xlink:href="images/sprite.svg#icon-chevron"></use>
               </svg>
               <span class="sr-only">Предыдущая страница</span>
-            </span>
+            </a>
 
             <ul class="pagination__list">
               <li class="pagination__item">
@@ -946,7 +953,7 @@
               </li>
             </ul>
 
-            <a class="pagination__next pagination__link" href="#">
+            <a class="pagination__link" href="#">
               <svg>
                 <use xlink:href="images/sprite.svg#icon-chevron"></use>
               </svg>

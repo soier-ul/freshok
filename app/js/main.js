@@ -1,18 +1,78 @@
 $(function () {
 
+  $('.product-slider__inner').slick({
+    slidesToShow: 4,
+    nextArrow: '<button type="button" class="product-slider__arrow product-slider__arrow--next"><svg><use xlink: href = "../images/sprite.svg#icon-chevron"></use></svg></button>',
+    prevArrow: '<button type="button" class="product-slider__arrow product-slider__arrow--prev"><svg><use xlink: href = "../images/sprite.svg#icon-chevron"></use></svg></button>',
+    infinite: false,
+    swipe: false,
+    responsive: [{
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 3,
+          swipe: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          arrows: false,
+          dots: true,
+          swipe: true
+        }
+      },
+    ]
+  });
+
+  $('.product-page__tab').on('click', function (e) {
+    e.preventDefault();
+    $('.product-page__tab').removeClass('product-page__tab--active');
+    $(this).addClass('product-page__tab--active');
+
+    $('.product-page__content-item').removeClass('product-page__content-item--active');
+    $($(this).attr('href')).addClass('product-page__content-item--active');
+  });
+
+  $('.product-page__list').slick({
+    infinite: false,
+    dots: true,
+    nextArrow: '<button type="button" class="product-page__arrow product-page__arrow--next"><svg><use xlink: href = "../images/sprite.svg#icon-chevron"></use></svg></button>',
+    prevArrow: '<button type="button" class="product-page__arrow product-page__arrow--prev"><svg><use xlink: href = "../images/sprite.svg#icon-chevron"></use></svg></button>',
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        arrows: false
+      }
+    }]
+  });
+
+  $('.product-page__img, .burger-popup').on('click', function () {
+    $('.product-page__popup').toggleClass('product-page__popup--active');
+  });
+
+  $(".rating").rateYo({
+    starWidth: "16px",
+    ratedFill: "#ffb800",
+    normalFill: "#f6f6f6",
+    halfStar: true,
+    starSvg: '<svg><use xlink: href="../images/sprite.svg#icon-star"></use></svg>'
+  });
+
   // header hide 
   let lastScroll = 0;
   const defaultOffset = 360;
   const header = document.querySelector('.header');
 
   const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
-  const containHide = () => header.classList.contains('hide');
+  const containHide = () => header.classList.contains('header--hide');
 
   window.addEventListener('scroll', () => {
     if (scrollPosition() > lastScroll && !containHide() && scrollPosition() > defaultOffset) {
-      header.classList.add('hide');
+      header.classList.add('header--hide');
     } else if (scrollPosition() < lastScroll && containHide()) {
-      header.classList.remove('hide');
+      header.classList.remove('header--hide');
     }
 
     lastScroll = scrollPosition();
@@ -20,6 +80,7 @@ $(function () {
   // header hide 
 
   $('.hero__inner').slick({
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: '<button type="button" class="hero__arrow hero__arrow--next"><svg><use xlink: href = "../images/sprite.svg#icon-arrow-right"></use></svg></button>',
@@ -66,12 +127,17 @@ $(function () {
     $('.header__form').removeClass('header__form--active');
   });
 
+  $('.burger--mobile').on('click', function () {
+    $('.product-catalog__filters').removeClass('product-catalog__filters--active');
+  });
+
   $(".little-card__star").rateYo({
     starWidth: "16px",
     maxValue: 1,
     numStars: 1,
     rating: 1,
-    readOnly: true
+    readOnly: true,
+    starSvg: '<svg><use xlink: href="../images/sprite.svg#icon-star"></use></svg>'
   });
 
   // filter
@@ -110,10 +176,10 @@ $(function () {
   });
 
   $('.product-catalog__btn--filter').on('click', function () {
-    $('.product-card').toggleClass('product-card--row');
+    $('.product-catalog__filters').toggleClass('product-catalog__filters--active');
   });
 
-  $('.product-catalog__select').styler();
+  $('.product-catalog__select, .product-page__info-input').styler();
 
   // ion range 
   var $range = $(".filter-price__slider"),

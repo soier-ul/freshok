@@ -1,0 +1,32 @@
+.promotion {
+  padding: 72px 0;
+  background-color: $silver-100;
+  text-align: center;
+
+  @include max-w($lg) {
+    padding: 48px 0;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: left;
+    margin-bottom: 15px;
+
+    @include max-w($lg) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__item {
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 30px;
+    display: flex;
+
+    @include max-w($lg) {
+      margin: 0 7px 15px 7px;
+    }
+  }
+}

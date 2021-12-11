@@ -41,7 +41,7 @@ $yellow: #ffb800;
   height: 45px;
 }
 
-%cb {
+@mixin cb {
   width: 1px;
   height: 1px;
   overflow: hidden;

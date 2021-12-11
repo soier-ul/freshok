@@ -1,0 +1,165 @@
+.footer {
+  background-color: $black-800;
+  color: $white;
+  padding-top: 30px;
+  position: relative;
+
+  @include max-w($sm) {
+    padding-top: 25px;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: rgba($white, 0.1);
+  }
+
+  &::before {
+    top: 245px;
+    display: none;
+
+    @include max-w($xl) {
+      display: block;
+    }
+
+    @include max-w($sm) {
+      bottom: 123px;
+    }
+  }
+
+  &::after {
+    display: none;
+
+    @include max-w($xl) {
+      display: block;
+      bottom: 200px;
+    }
+
+    @include max-w($sm) {
+      bottom: 245px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 30px;
+
+    @include max-w($xl) {
+      flex-direction: column-reverse;
+      align-items: center;
+      overflow-x: hidden;
+      padding-bottom: 25px;
+    }
+  }
+
+  &__form-wrapper {
+    margin-right: 75px;
+    margin-bottom: 20px;
+
+    @include max-w($xl) {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__descr {
+    line-height: 1;
+    margin-bottom: 18px;
+    @include clamp(2);
+  }
+
+  &__form {
+    max-width: 306px;
+    width: 100%;
+    position: relative;
+  }
+
+  &__form-field {
+    height: 40px;
+    width: 100%;
+    padding: 11px 140px 12px 12px;
+    border-radius: 6px;
+    outline: transparent;
+    transition: box-shadow 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 4px $green-200;
+    }
+
+    &::placeholder {
+      color: $black-500;
+      letter-spacing: 0.03em;
+    }
+  }
+
+  &__form-button {
+    padding: 12px 16px;
+    background-color: $green;
+    font-size: 12px;
+    font-weight: 700;
+    height: 40px;
+
+    &:hover {
+      background-color: $green-900;
+    }
+  }
+
+  &__list {
+    column-count: 3;
+    column-gap: 65px;
+    column-width: 130px;
+    position: relative;
+
+    @include max-w($xl) {
+      column-gap: 150px;
+      margin-bottom: 30px;
+    }
+
+    @include max-w($lg) {
+      column-gap: 40px;
+      column-count: 2;
+      margin-right: -65px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 12px;
+    padding: 3px 0;
+  }
+
+  &__link {
+    @include max-w($xl) {
+      padding: 13px 3px;
+    }
+  }
+
+  &__copy {
+    padding: 25px 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 1px;
+      width: 100%;
+      background-color: rgba($white, 0.1);
+    }
+  }
+
+  &__copy-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @include max-w($sm) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+}

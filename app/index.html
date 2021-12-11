@@ -38,7 +38,6 @@
       </div>
 
       <a class="mobile-menu__link" href="#">
-        <!-- вставил svg, потому что картинка сама другого цвета, что б еще не скачивать -->
         <svg>
           <use xlink:href="images/sprite.svg#icon-select-nav"></use>
         </svg>
@@ -193,17 +192,15 @@
         <div class="header__bottom-inner">
 
           <a class="logo" href="#">
-            <!-- не знаю, правильно или нет -->
             <picture>
               <source srcset="images/logo-short.svg" media="(max-width: 768px)" width="38">
-              <source srcset="images/logo.svg">
               <img srcset="images/logo.svg" alt="логотип">
             </picture>
           </a>
 
           <div class="header__catalog">
             <button class="header__btn" type="button">
-              Каталог товаров
+              Каталог продуктов
             </button>
 
             <ul class="header__list">
@@ -1440,16 +1437,21 @@
         </ul>
       </address>
     </div>
+  </div>
 
-    <div class="footer__copy">
-      <p>© 2021 ФРЕШОК</p>
+  <div class="footer__copy">
+    <div class="container">
+      <div class="footer__copy-inner">
+        <p>© 2021 ФРЕШОК</p>
 
-      <ul class="pay">
-        <li class="pay__item" style="background-image: url(images/social/visa.svg);"></li>
-        <li class="pay__item pay__item--mc" style="background-image: url(images/social/mc.svg);"></li>
-      </ul>
+        <ul class="pay">
+          <li class="pay__item" style="background-image: url(images/social/visa.svg);"></li>
+          <li class="pay__item pay__item--mc" style="background-image: url(images/social/mc.svg);"></li>
+        </ul>
+      </div>
     </div>
   </div>
+
 </footer>
 
 </div>

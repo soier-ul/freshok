@@ -1,0 +1,44 @@
+.breadcrumbs {
+  padding: 24px 0;
+  background-color: $silver-100;
+
+  &__list {
+    display: flex;
+    align-items: center;
+
+    @include max-w($md) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    margin-right: 6px;
+    padding-right: 10px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 5px;
+      width: 6px;
+      height: 10px;
+      background-image: url(../images/icons/icon-chevron.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    &:last-child {
+      margin-right: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    line-height: 1.2;
+  }
+}

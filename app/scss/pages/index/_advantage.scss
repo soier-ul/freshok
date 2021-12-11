@@ -1,0 +1,85 @@
+.advantage {
+  padding: 50px 0 30px;
+  background-color: $silver-100;
+
+  @include max-w($lg) {
+    padding: 33px 0;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+
+    @include max-w($lg) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @include max-w($md) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__item {
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    padding-left: 75px;
+    margin: 0 33px;
+
+    @include max-w($lg) {
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include max-w($md) {
+      margin: 0 30px 30px 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 50px;
+      height: 50px;
+    }
+
+    &--scooter::before {
+      background-image: url(../images/icons/icon-scooter.svg);
+    }
+
+    &--return::before {
+      background-image: url(../images/icons/icon-return.svg);
+    }
+
+    &--support::before {
+      background-image: url(../images/icons/icon-support.svg);
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    color: $black;
+    font-size: 16px;
+    margin-bottom: 6px;
+    display: inline-block;
+    width: 190px;
+    @include clamp(3);
+  }
+
+  &__text {
+    width: 180px;
+    @include clamp(2);
+
+    @include max-w($md) {
+      width: 100%;
+    }
+  }
+}

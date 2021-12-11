@@ -1,0 +1,37 @@
+.top-products {
+  padding: 70px 0;
+  text-align: center;
+
+  @include max-w($md) {
+    padding: 45px 0;
+  }
+
+  &__inner {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 18px;
+
+    @include max-w($md) {
+      margin: 0 -15px 20px;
+    }
+
+    @include max-w($sm) {
+      margin: 0 -15px 20px;
+    }
+  }
+
+  &__item {
+    margin: 0 15px 30px 15px;
+    display: flex;
+
+    @include max-w($md) {
+      margin: 0 10px 20px;
+    }
+
+    @include max-w($sm) {
+      margin: 0 2px 4px;
+    }
+  }
+}

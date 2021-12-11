@@ -18,10 +18,6 @@ body {
   }
 }
 
-svg {
-  fill: $white;
-}
-
 html,
 body {
   height: 100%;
@@ -31,14 +27,13 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-
 }
 
 .main {
   flex: 1 0 auto;
   padding-top: 160px;
 
-  @include max-w ($md) {
+  @include max-w($md) {
     padding-top: 110px;
   }
 }
@@ -70,8 +65,16 @@ body {
     display: block;
   }
 
+  &--filter {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
   &--mobile {
-    margin-right: 10px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
 
     .burger__row {
       background-color: $black-800;
@@ -122,10 +125,11 @@ body {
 }
 
 .logo {
-  display: inline-block;
+  display: block;
+  height: 62px;
+  flex-shrink: 0;
 
-  @include max-w ($md) {
-    height: 60px;
+  @include max-w($md) {
     width: 120px;
     padding-top: 9px;
   }
@@ -136,19 +140,18 @@ body {
   }
 
   &--footer {
-    display: block;
     width: 200px;
+    padding-top: 0;
 
-    @include max-w ($xl) {
-      display: flex;
-      justify-content: center;
+    @include max-w($xl) {
+      margin: 0 auto;
     }
   }
 
   &__img {
     object-fit: contain;
     object-position: left;
-    width: 200px;
+    height: 62px;
   }
 }
 
@@ -204,7 +207,7 @@ body {
   display: inline-block;
 
   &--slide {
-    @include max-w ($md) {
+    @include max-w($md) {
       font-size: 14px;
     }
   }
@@ -238,8 +241,9 @@ body {
   color: $black;
   text-align: center;
   margin-bottom: 30px;
+  letter-spacing: 0.03em;
 
-  @include max-w ($md) {
+  @include max-w($md) {
     font-size: 24px;
     margin-bottom: 25px;
   }
@@ -319,7 +323,7 @@ body {
   justify-content: center;
   margin-bottom: 50px;
 
-  @include max-w ($md) {
+  @include max-w($md) {
     flex-wrap: wrap;
     margin-bottom: 10px;
   }
@@ -327,7 +331,7 @@ body {
   &__item {
     margin-left: 24px;
 
-    @include max-w ($md) {
+    @include max-w($md) {
       margin-bottom: 15px;
     }
 
@@ -396,6 +400,7 @@ body {
 .product-card {
   max-width: 300px;
   width: 100%;
+  height: 100%;
   border: 1px solid rgba($black, 0.2);
   border-radius: 6px;
   padding: 56px 18px 18px;
@@ -408,12 +413,8 @@ body {
     max-width: 466px;
     padding: 14px 18px 9px 12px;
 
-    @include max-w ($md) {
-      max-width: 340px;
-    }
-
-    @include max-w ($sm) {
-      max-width: 290px;
+    @include max-w($lg) {
+      display: none;
     }
 
     .product-card__wrapper-content {
@@ -423,18 +424,10 @@ body {
     .product-card__wrapper-info {
       width: 200px;
       margin-right: 20px;
-
-      @include max-w ($md) {
-        width: 160px;
-      }
     }
 
     .product-card__wrapper-status {
       margin-bottom: 16px;
-
-      @include max-w ($sm) {
-        margin-bottom: 5px;
-      }
     }
 
     .product-card__link {
@@ -442,25 +435,9 @@ body {
       height: 140px;
       margin-right: 10px;
 
-      @include max-w ($md) {
-        width: 100px;
-      }
-
-      @include max-w ($md) {
-        width: 90px;
-      }
-
       &::before {
         width: 198px;
         left: 0;
-
-        @include max-w ($md) {
-          width: 98px;
-        }
-
-        @include max-w ($md) {
-          width: 88px;
-        }
       }
     }
 
@@ -469,33 +446,14 @@ body {
       width: 100%;
     }
 
-    .product-card__descr {
-
-      @include max-w ($md) {
-        margin-bottom: 40px;
-      }
-    }
-
     .product-card__price {
       left: 223px;
       bottom: 12px;
-
-      @include max-w ($md) {
-        left: 115px;
-      }
-
-      @include max-w ($md) {
-        left: 103px;
-      }
     }
 
     .btn-chosen {
       right: 16px;
       top: 66px;
-
-      @include max-w ($md) {
-        right: 6px;
-      }
     }
 
     .btn-basket {
@@ -512,12 +470,12 @@ body {
     }
   }
 
-  @include max-w ($md) {
+  @include max-w($md) {
     max-width: 170px;
-    padding: 56px 12px 12px;
+    padding: 56px 12px 22px;
   }
 
-  @include max-w ($xs) {
+  @include max-w($xs) {
     max-width: 146px;
   }
 
@@ -530,21 +488,13 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
-    margin-top: -3px;
-
-    @include max-w ($md) {
-      margin-top: -9px;
-    }
-
-    @include max-w ($xs) {
-      margin-top: -3px;
-    }
+    margin-top: -2px;
   }
 
   &__link {
     position: relative;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 18px;
     height: 225px;
     width: 100%;
 
@@ -553,11 +503,7 @@ body {
       margin-bottom: 0;
     }
 
-    @include max-w ($md) {
-      height: 132px;
-    }
-
-    @include max-w ($xs) {
+    @include max-w($md) {
       height: 115px;
     }
 
@@ -588,12 +534,12 @@ body {
       height: 100%;
       background-color: rgba($black, 0.1);
 
-      @include max-w ($md) {
+      @include max-w($md) {
         width: 168px;
         left: -12px;
       }
 
-      @include max-w ($xs) {
+      @include max-w($xs) {
         width: 144px;
       }
     }
@@ -625,11 +571,7 @@ body {
     padding-top: 10px;
     height: 215px;
 
-    @include max-w ($md) {
-      height: 126px;
-    }
-
-    @include max-w ($xs) {
+    @include max-w($md) {
       height: 115px;
     }
   }
@@ -641,9 +583,8 @@ body {
     @include clamp(3);
     margin-bottom: 40px;
 
-    @include max-w ($md) {
-      margin-bottom: 70px;
-      @include clamp(3);
+    @include max-w($md) {
+      margin-bottom: 71px;
     }
   }
 
@@ -652,6 +593,11 @@ body {
     position: absolute;
     left: 20px;
     bottom: 12px;
+
+    @include max-w($md) {
+      left: 12px;
+      bottom: 8px;
+    }
   }
 }
 
@@ -729,6 +675,7 @@ body {
   }
 
   svg {
+    fill: $white;
     position: absolute;
     width: 16px;
     height: 16px;
@@ -825,8 +772,13 @@ body {
     &--catalog {
       margin-right: -7px;
 
-      @include max-w ($sm) {
+      @include max-w($sm) {
         font-size: 10px;
+
+        svg {
+          width: 12px;
+          height: 12px;
+        }
       }
     }
   }
@@ -835,6 +787,7 @@ body {
     color: $black-500;
     line-height: 1;
     font-weight: 700;
+    margin-right: 2px;
   }
 
   &__star {
@@ -862,8 +815,8 @@ body {
   }
 
   &--catalog {
-    
-    @include max-w ($sm) {
+
+    @include max-w($sm) {
       font-size: 8px;
     }
   }
@@ -925,7 +878,7 @@ body {
     height: 240px;
     object-fit: cover;
 
-    @include max-w ($sm) {
+    @include max-w($sm) {
       height: 200px;
     }
   }
@@ -940,7 +893,7 @@ body {
     letter-spacing: 0;
     transition: color 0.3s;
 
-    @include max-w ($sm) {
+    @include max-w($sm) {
       font-size: 14px;
       line-height: 1.4;
       padding: 15px;
@@ -1011,7 +964,7 @@ body {
   display: flex;
   margin-left: 20px;
 
-  @include max-w ($sm) {
+  @include max-w($sm) {
     margin-bottom: 25px;
     margin-left: 0;
   }
@@ -1038,7 +991,7 @@ body {
   display: flex;
 
   &--footer {
-    @include max-w ($sm) {
+    @include max-w($sm) {
       justify-content: center;
       margin-right: 15px;
     }
@@ -1068,6 +1021,7 @@ body {
     }
 
     svg {
+      fill: $white;
       width: 32px;
       height: 32px;
     }
@@ -1091,7 +1045,7 @@ body {
 .address {
 
   &--footer {
-    @include max-w ($xl) {
+    @include max-w($xl) {
       margin-bottom: 55px;
       margin-left: 24px;
     }
@@ -1179,7 +1133,7 @@ body {
   z-index: 20;
   left: 0;
   top: 0;
-  max-width: 320px;
+  max-width: 300px;
   width: 100%;
   height: 100vh;
   padding: 24px 0;
@@ -1291,6 +1245,7 @@ body {
   }
 
   &__item {
+    width: 300px;
     margin-bottom: 30px;
     transition: margin-bottom 0.5s;
 
@@ -1304,6 +1259,7 @@ body {
   }
 
   &__btn {
+    background-color: $white;
     padding: 18px 0;
     text-align: left;
     padding-left: 18px;
@@ -1350,7 +1306,7 @@ body {
   }
 
   &__input {
-    @extend %cb;
+    @include cb;
 
     &:checked+.filter__checkbox {
       background-image: url(../images/icons/icon-checked.svg);
@@ -1382,19 +1338,224 @@ body {
   }
 }
 
+.filter-category {
+  overflow: hidden;
+
+  &__list {
+    padding: 18px;
+    overflow-y: scroll;
+    height: 300px;
+    background-color: $white;
+    display: none;
+  }
+
+  &__item {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    font-size: 18px;
+    line-height: 1.3;
+    display: block;
+  }
+
+  &--active {
+
+    .filter-category__list {
+      border: 1px solid $silver;
+      border-radius: 0 0 6px 6px;
+      border-top: none;
+      display: block;
+    }
+
+    .filter__btn {
+      border-radius: 6px 6px 0 0;
+
+      &::before {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+.filter-offers {
+  overflow: hidden;
+
+  &__form {
+    padding: 18px;
+    border: 1px solid $silver;
+    border-radius: 6px;
+    background-color: $white;
+    display: none;
+  }
+
+  &--active {
+
+    .filter-offers__form {
+      border-radius: 0 0 6px 6px;
+      border-top: none;
+      display: block;
+    }
+
+    .filter__btn {
+      border-radius: 6px 6px 0 0;
+
+      &::before {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+.filter-brands {
+
+  &__form {
+    padding: 18px;
+    border: 1px solid $silver;
+    border-radius: 6px;
+    background-color: $white;
+    display: none;
+  }
+
+  &--active {
+
+    .filter-brands__form {
+      border-radius: 0 0 6px 6px;
+      border-top: none;
+      display: block;
+    }
+
+    .filter__btn {
+      border-radius: 6px 6px 0 0;
+
+      &::before {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+.filter-price {
+
+  &__form {
+    padding: 23px 18px 18px;
+    border: 1px solid $silver;
+    border-radius: 0 0 6px 6px;
+    border-top: none;
+    background-color: $white;
+    display: none;
+  }
+
+  &__inputs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    margin: 0 12px;
+  }
+
+  &__input {
+    width: 80px;
+    height: 40px;
+    background-color: $silver-100;
+    border: 1px solid $silver;
+    border-radius: 3px;
+    margin: 0 6px;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1;
+    outline: transparent;
+
+    &::placeholder {
+      color: $black-500;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px $green-200;
+    }
+  }
+
+  &__text {
+    font-family: 'Ruda', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 1.2;
+    color: $silver;
+  }
+
+  .irs--flat .irs-line {
+    height: 2px;
+    background-color: $silver;
+    top: 8px;
+  }
+
+  .irs--flat {
+    height: 18px;
+  }
+
+  .irs--flat .irs-bar {
+    height: 2px;
+    background-color: $green;
+    top: 8px;
+  }
+
+  .irs--flat .irs-handle {
+    top: 0;
+    width: 18px;
+    height: 18px;
+    background-color: $green;
+    border-radius: 50%;
+
+    i {
+      display: none;
+    }
+  }
+
+  .irs-from,
+  .irs-to,
+  .irs-single {
+    display: none;
+  }
+
+  .irs-min,
+  .irs-max {
+    display: none;
+  }
+
+  &--active {
+
+    .filter-price__form {
+      border-radius: 0 0 6px 6px;
+      border-top: none;
+      display: block;
+    }
+
+    .filter__btn {
+      border-radius: 6px 6px 0 0;
+
+      &::before {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
 .pagination {
   display: flex;
   align-items: center;
 
-  @include max-w ($md) {
+  @include max-w($md) {
     margin-top: 25px;
-  }
-
-  &__prev {
-
-    svg {
-      transform: rotate(-180deg);
-    }
   }
 
   &__list {
@@ -1407,7 +1568,7 @@ body {
     width: 48px;
     height: 48px;
 
-    @include max-w ($md) {
+    @include max-w($md) {
 
       &:nth-child(2),
       &:nth-child(4) {
@@ -1454,6 +1615,12 @@ body {
       box-shadow: inset 0 4px 4px rgba($black, 0.25);
     }
 
+    &--prev {
+      svg {
+        transform: rotate(-180deg);
+      }
+    }
+
     &--active {
       border: 1px solid $black-500;
     }
@@ -1465,4 +1632,48 @@ body {
       }
     }
   }
+}
+
+.burger-popup {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: 38px;
+  right: 38px;
+  z-index: 102;
+
+  @include max-w($md) {
+    right: 20px;
+    top: 20px;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 2px;
+    background-color: rgba($black, 0.15);
+    transition: background-color 0.3s;
+  }
+
+  &::before {
+    transform: rotate(-45deg) translate(-12px, -12px);
+  }
+
+  &::after {
+    transform: rotate(45deg) translate(-12px, 12px);
+  }
+
+  &:hover {
+
+    &::before,
+    &::after {
+      background-color: rgba($black, 0.55);
+    }
+  }
+}
+
+.jq-ry-container {
+  padding: 0;
 }
